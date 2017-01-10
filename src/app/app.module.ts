@@ -1,24 +1,37 @@
+import "hammerjs";
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
-import {FormsModule} from "@angular/forms";
-import {HttpModule} from "@angular/http";
 import {AppComponent} from "./app.component";
-import {GuestListComponent} from "./guest/guest-list/guest-list.component";
-import {InMemoryGuestService} from "./services/api.guests.services";
-import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {GuestModule} from "./guest/guest.module";
+import {AngularFireModule} from "angularfire2";
+import {CommonModule} from "@angular/common";
+import {MaterialModule} from "@angular/material";
+import {RoutesModule} from "./app.routing";
+import {StoreModule} from "@ngrx/store";
+import * as fromRoot from "./app.reducers"
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyCJQEGZqv9lEexqfHz5SzQ1wNoCpWgoaps",
+  authDomain: "luminous-inferno-5310.firebaseapp.com",
+  databaseURL: "https://luminous-inferno-5310.firebaseio.com",
+  storageBucket: "luminous-inferno-5310.appspot.com",
+  messagingSenderId: "654530681156"
+};
 
 @NgModule({
   declarations: [
-    AppComponent,
-    GuestListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryGuestService),
+    CommonModule,
+    RoutesModule,
+    //HttpModule,
+    //InMemoryWebApiModule.forRoot(InMemoryGuestService),
+    AngularFireModule.initializeApp(firebaseConfig),
+    MaterialModule.forRoot(),
+    StoreModule.provideStore(fromRoot.reducer),
+
     GuestModule
   ],
   providers: [],

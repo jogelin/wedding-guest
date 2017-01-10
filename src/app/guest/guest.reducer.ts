@@ -1,43 +1,39 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs';
-import { Book } from './../types/book';
-import { Injectable } from '@angular/core';
-import { createStore, Store, combineReducers, Action } from 'redux'
 import {Guest} from "./guest.model";
+import * as guest from "./guest.actions";
 
-export interface GuestState {
-    guests: Guest[]
+
+export interface State {
+  guests: Guest[];
+  loading: boolean;
 };
 
-export enum ActionTypes { GET_BOOKS };
+export const initialState: State = {
+  guests: [],
+  loading: false
+};
 
-@Injectable()
-export class GuestReducer {
-    store: Store<IAppState>;
-    state$: BehaviorSubject<IAppState> = new BehaviorSubject<IAppState>({ guests: [] });
+export function reducer(state = initialState, action: guest.Actions): State {
+  switch (action.type) {
 
-    constructor() {
-        const reducers = combineReducers<IAppState>({
-          guests: this.guestsReducer
-        });
-
-        this.store = createStore(reducers);
-
-        this.store.subscribe(() => this.state$.next(this.store.getState()));
-
-
+    case guest.ActionTypes.LOAD: {
+      return Object.assign({}, state, {
+        loading: true
+      });
     }
 
-    guestReducer(guests: Guest[] = [], action): Guest[] {
-        //console.log(action);
-        switch (action.type) {
-            //case ActionTypes.GET_BOOK:
-            case ActionTypes.GET_BOOKS:
-                return action.books;
-            default:
-                return guests;
-
-        }
+    case guest.ActionTypes.LOAD_SUCCESS: {
+      return {
+        loading: false,
+        guests: action.payload
+      };
     }
+
+    default: {
+      return state;
+    }
+  }
 }
+
+export const getLoading = (state: State) => state.loading;
+
+export const getGuests = (state: State) => state.guests;
