@@ -8,8 +8,8 @@ import {Observable} from "rxjs";
 
 
 @Component({
-  selector: 'wg-guest-list',
-  template: `
+    selector: 'wg-guest-list',
+    template: `
 <md-sidenav-container fullscreen>
   <md-sidenav #sidenav  mode="side" opened="true">
       <md-nav-list>
@@ -21,7 +21,7 @@ import {Observable} from "rxjs";
   </md-sidenav>
 
   <md-list class="my-content">
-    <md-spinner [class.show]="loading$ | async"></md-spinner>
+    <md-spinner *ngIf="loading$ | async"></md-spinner>
     <md-list-item *ngFor="let guest of guests$ | async">
         {{guest.name}}
     </md-list-item>
@@ -30,22 +30,26 @@ import {Observable} from "rxjs";
 </md-sidenav-container>
 
   `,
-  styleUrls: ['./guest-list.component.scss']
+    styles: [`
+        md-sidenav-container {
+          margin-top:64px;
+        } 
+    `]
 })
 export class GuestListComponent implements OnInit {
 
-  guests$: Observable<Guest[]>;
-  loading$: Observable<boolean>;
+    guests$: Observable<Guest[]>;
+    loading$: Observable<boolean>;
 
-  constructor(guestService: GuestService, private store: Store<fromRoot.State>) {
-    //this.guests$ = store.select(fromRoot.guestsSelector);
-    this.loading$ = store.select(fromRoot.guestsLoadingSelector);
+    constructor(guestService: GuestService, private store: Store<fromRoot.State>) {
+        this.guests$ = store.select(fromRoot.guestsSelector);
+        this.loading$ = store.select(fromRoot.guestsLoadingSelector);
 
-    guestService.retrieveGuests();
-  }
+        guestService.retrieveGuests();
+    }
 
-  ngOnInit() {
+    ngOnInit() {
 
-  }
+    }
 
 }

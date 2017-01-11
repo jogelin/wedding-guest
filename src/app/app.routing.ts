@@ -5,7 +5,7 @@ import {GuestListComponent} from "./guest/guest-list/guest-list.component";
  */
 
 const routes: Routes = [
-  { path: '', redirectTo: '/guests', pathMatch: 'full' },
+  //{ path: '', redirectTo: '/guests', pathMatch: 'full' },
   { path: 'guests',  component: GuestListComponent }
 ];
 

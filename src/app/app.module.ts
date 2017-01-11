@@ -9,6 +9,7 @@ import {MaterialModule} from "@angular/material";
 import {RoutesModule} from "./app.routing";
 import {StoreModule} from "@ngrx/store";
 import * as fromRoot from "./app.reducers"
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCJQEGZqv9lEexqfHz5SzQ1wNoCpWgoaps",
@@ -31,7 +32,9 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule.forRoot(),
     StoreModule.provideStore(fromRoot.reducer),
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
 
+    //MY
     GuestModule
   ],
   providers: [],

@@ -6,20 +6,21 @@ import {AngularFire} from "angularfire2";
 import {Store} from "@ngrx/store";
 import * as fromRoot from "../app.reducers";
 import * as guest from "./guest.actions";
-
-import 'rxjs/add/operator/startWith';
+import "rxjs/add/operator/startWith";
+import "rxjs/add/operator/switchMap";
 
 
 @Injectable()
 export class GuestService {
-  constructor(private af: AngularFire, private store: Store<fromRoot.State>, ) {
+  constructor(private af: AngularFire, private store: Store<fromRoot.State>,) {
   }
 
   retrieveGuests(): void {
+    this.store.dispatch(new guest.LoadAction());
+
     this.af.database.list('/guests')
-      .startWith(new guest.LoadAction())
-      .map(guestList => new guest.LoadSuccessAction(guestList))
-      .subscribe((action: guest.LoadSuccessAction) => this.store.dispatch(action));
+        .do(guests => console.log(guests))
+      .subscribe((guests) => this.store.dispatch(new guest.LoadSuccessAction(guests)));
   }
 
 }

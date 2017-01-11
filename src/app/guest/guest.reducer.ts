@@ -13,6 +13,8 @@ export const initialState: State = {
 };
 
 export function reducer(state = initialState, action: guest.Actions): State {
+  console.log(action.type);
+
   switch (action.type) {
 
     case guest.ActionTypes.LOAD: {
