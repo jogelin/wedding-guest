@@ -6,8 +6,8 @@
  *
  * More: https://egghead.io/lessons/javascript-redux-implementing-combinereducers-from-scratch
  */
-import {ActionReducer, combineReducers} from "@ngrx/store";
-import {environment} from "../environments/environment";
+import {ActionReducer, combineReducers} from '@ngrx/store';
+import {environment} from '../environments/environment';
 /**
  * The compose function is one of our most handy tools. In basic terms, you give
  * it any number of functions and it returns a function. This new function
@@ -16,28 +16,28 @@ import {environment} from "../environments/environment";
  *
  * More: https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html
  */
-import {compose} from "@ngrx/core/compose";
+import {compose} from '@ngrx/core/compose';
 /**
  * storeFreeze prevents state from being mutated. When mutation occurs, an
  * exception will be thrown. This is useful during development mode to
  * ensure that none of the reducers accidentally mutates the state.
  */
-import {storeFreeze} from "ngrx-store-freeze";
+import {storeFreeze} from 'ngrx-store-freeze';
 /**
  * Every reducer module's default export is the reducer function itself. In
  * addition, each module should export a type or interface that describes
  * the state of the reducer plus any selector functions. The `* as`
  * notation packages up all of the exports into a single object.
  */
-import * as fromGuest from "./guest/guest.reducer";
-import { createSelector } from 'reselect';
+import * as fromGuest from './guest/guest.reducer';
+import {createSelector} from 'reselect';
 
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
  * our top level state interface is just a map of keys to inner state types.
  */
 export interface State {
-  guests: fromGuest.State;
+    guests: fromGuest.State;
 }
 
 
@@ -49,19 +49,18 @@ export interface State {
  * the result from right to left.
  */
 const reducers = {
-  guests: fromGuest.reducer
+    guests: fromGuest.reducer
 };
 
 const developmentReducer: ActionReducer<State> = compose(storeFreeze, combineReducers)(reducers);
 const productionReducer: ActionReducer<State> = combineReducers(reducers);
 
 export function reducer(state: any, action: any) {
-  if (environment.production) {
-    return productionReducer(state, action);
-  }
-  else {
-    return developmentReducer(state, action);
-  }
+    if (environment.production) {
+        return productionReducer(state, action);
+    } else {
+        return developmentReducer(state, action);
+    }
 }
 
 

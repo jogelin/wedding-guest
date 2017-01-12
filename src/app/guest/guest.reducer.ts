@@ -1,5 +1,5 @@
-import {Guest} from "./guest.model";
-import * as guest from "./guest.actions";
+import {Guest} from './guest.model';
+import * as guest from './guest.actions';
 
 
 export interface State {
