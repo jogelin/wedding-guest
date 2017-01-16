@@ -14,5 +14,13 @@
     "typeRoots": [
       "../node_modules/@types"
     ]
+  },
+  "files": [
+    "./app/app.module.ts",
+    "./main-aot.ts"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "aot",
+    "skipMetadataEmit" : true
   }
 }

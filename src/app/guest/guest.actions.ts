@@ -28,37 +28,27 @@ export const ActionTypes = {
  */
 export class FilterAction implements Action {
     type = ActionTypes.FILTER;
-
-    constructor(public payload: string) {
-    }
+    constructor(public payload: string) {}
 }
 
 export class FilterCompleteAction implements Action {
     type = ActionTypes.FILTER_COMPLETE;
-
-    constructor(public payload: Guest[]) {
-    }
+    constructor(public payload: Guest[]) {}
 }
 
 export class LoadAction implements Action {
     type = ActionTypes.LOAD;
-
-    constructor() {
-    }
+    constructor() {}
 }
 
 export class LoadSuccessAction implements Action {
     type = ActionTypes.LOAD_SUCCESS;
-
-    constructor(public payload: Guest[]) {
-    }
+    constructor(public payload: Guest[]) {}
 }
 
 export class LoadFailAction implements Action {
     type = ActionTypes.LOAD_FAIL;
-
-    constructor(public payload: any) {
-    }
+    constructor(public payload: any) {}
 }
 
 

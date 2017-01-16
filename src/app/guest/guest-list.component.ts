@@ -32,6 +32,11 @@ import {Observable} from 'rxjs';
     styles: [`
         md-sidenav-container {
           margin-top:64px;
+          md-sidenav {
+            .md-sidenav-opened {
+                box-shadow: none;
+            }
+          }
         } 
     `]
 })
