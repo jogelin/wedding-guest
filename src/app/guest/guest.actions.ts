@@ -1,6 +1,6 @@
-import {Action} from '@ngrx/store';
-import {type} from '../util';
-import {Guest} from './guest.model';
+import {Action} from "@ngrx/store";
+import {type} from "../util";
+import {Guests} from "./guest.model";
 
 /**
  * For each action type in an action group, make a simple
@@ -33,7 +33,7 @@ export class FilterAction implements Action {
 
 export class FilterCompleteAction implements Action {
     type = ActionTypes.FILTER_COMPLETE;
-    constructor(public payload: Guest[]) {}
+    constructor(public payload: Guests[]) {}
 }
 
 export class LoadAction implements Action {
@@ -43,7 +43,7 @@ export class LoadAction implements Action {
 
 export class LoadSuccessAction implements Action {
     type = ActionTypes.LOAD_SUCCESS;
-    constructor(public payload: Guest[]) {}
+    constructor(public payload: Guests[]) {}
 }
 
 export class LoadFailAction implements Action {

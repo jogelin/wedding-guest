@@ -1,6 +1,10 @@
-export enum From { JGE, ATR };
-
 export class Guest {
     name: string;
-    owner: From;
+    email: string;
+    groups: string[];
+}
+
+export class Guests {
+  guests: Guest[];
+  address: string;
 }

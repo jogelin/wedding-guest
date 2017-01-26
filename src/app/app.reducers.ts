@@ -81,20 +81,5 @@ export function reducer(state: any, action: any) {
  */
 export const guestsState = (state: State) => state.guests;
 
-/**
- * Every reducer module exports selector functions, however child reducers
- * have no knowledge of the overall state tree. To make them useable, we
- * need to make new selectors that wrap them.
- *
- * Once again our compose function comes in handy. From right to left, we
- * first select the books state then we pass the state to the book
- * reducer's getBooks selector, finally returning an observable
- * of search results.
- *
- * Share memoizes the selector functions and publishes the result. This means
- * every time you call the selector, you will get back the same result
- * observable. Each subscription to the resultant observable
- * is shared across all subscribers.
- */
-export const guestsSelector = createSelector(guestsState, fromGuest.getGuests);
+export const guestListSelector = createSelector(guestsState, fromGuest.getGuestList);
 export const guestsLoadingSelector = createSelector(guestsState, fromGuest.getLoading);

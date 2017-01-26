@@ -18,7 +18,15 @@ export class GuestService {
   retrieveGuests(): void {
     this.store.dispatch(new guest.LoadAction());
 
-    this.af.database.list('/guests')
+    this.af.database.list('/guest-list')
+        .do(guests => console.log(guests))
+      .subscribe((guests) => this.store.dispatch(new guest.LoadSuccessAction(guests)));
+  }
+
+  retrieveGroups(): void {
+    this.store.dispatch(new guest.LoadAction());
+
+    this.af.database.list('/groups')
         .do(guests => console.log(guests))
       .subscribe((guests) => this.store.dispatch(new guest.LoadSuccessAction(guests)));
   }

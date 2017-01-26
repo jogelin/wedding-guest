@@ -1,14 +1,14 @@
-import {Guest} from './guest.model';
+import {Guest, Guests} from './guest.model';
 import * as guest from './guest.actions';
 
 
 export interface State {
-  guests: Guest[];
+  guestList: Guests[];
   loading: boolean;
 };
 
 export const initialState: State = {
-  guests: [],
+  guestList: [],
   loading: false
 };
 
@@ -26,7 +26,7 @@ export function reducer(state = initialState, action: guest.Actions): State {
     case guest.ActionTypes.LOAD_SUCCESS: {
       return {
         loading: false,
-        guests: action.payload
+        guestList: action.payload
       };
     }
 
@@ -38,4 +38,4 @@ export function reducer(state = initialState, action: guest.Actions): State {
 
 export const getLoading = (state: State) => state.loading;
 
-export const getGuests = (state: State) => state.guests;
+export const getGuestList = (state: State) => state.guestList;
