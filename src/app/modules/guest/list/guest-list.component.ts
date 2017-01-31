@@ -1,0 +1,24 @@
+import {Component, Input} from "@angular/core";
+import "rxjs/add/operator/map";
+import {GuestListItem} from "../guest.model";
+
+
+@Component({
+    selector: 'wg-guest-list',
+    styles: [`
+        md-card {
+          padding:0;
+          margin:7px;
+        }   
+    `],
+    template: `
+        <md-spinner *ngIf="loading"></md-spinner>
+        <md-card *ngFor="let item of guestList">
+            <wg-guest-list-item [item]="item"></wg-guest-list-item>
+        </md-card>
+    `
+})
+export class GuestListComponent {
+    @Input() guestList: GuestListItem[] = [];
+    @Input() loading: boolean = false;
+}

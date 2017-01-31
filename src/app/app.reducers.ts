@@ -29,7 +29,8 @@ import {storeFreeze} from 'ngrx-store-freeze';
  * the state of the reducer plus any selector functions. The `* as`
  * notation packages up all of the exports into a single object.
  */
-import * as fromGuest from './guest/guest.reducer';
+import * as fromGuest from './modules/guest/guest.reducer';
+import * as fromFilter from './modules/filter/filter.reducer';
 import {createSelector} from 'reselect';
 
 /**
@@ -37,7 +38,8 @@ import {createSelector} from 'reselect';
  * our top level state interface is just a map of keys to inner state types.
  */
 export interface State {
-    guests: fromGuest.State;
+    guest: fromGuest.State;
+    filter: fromFilter.State;
 }
 
 
@@ -49,7 +51,8 @@ export interface State {
  * the result from right to left.
  */
 const reducers = {
-    guests: fromGuest.reducer
+    guest: fromGuest.reducer,
+    filter: fromFilter.reducer
 };
 
 const developmentReducer: ActionReducer<State> = compose(storeFreeze, combineReducers)(reducers);
@@ -64,22 +67,16 @@ export function reducer(state: any, action: any) {
 }
 
 
-/**
- * A selector function is a map function factory. We pass it parameters and it
- * returns a function that maps from the larger state tree into a smaller
- * piece of state. This selector simply selects the `books` state.
- *
- * Selectors are used with the `select` operator.
- *
- * ```ts
- * class MyComponent {
- * 	constructor(state$: Observable<State>) {
- * 	  this.booksState$ = state$.select(getBooksState);
- * 	}
- * }
- * ```
- */
-export const guestsState = (state: State) => state.guests;
+//GUEST
+export const getGuestState = (state: State) => state.guest;
 
-export const guestListSelector = createSelector(guestsState, fromGuest.getGuestList);
-export const guestsLoadingSelector = createSelector(guestsState, fromGuest.getLoading);
+export const getGuestList = createSelector(getGuestState, fromGuest.getGuestList);
+export const getGuestListLoading = createSelector(getGuestState, fromGuest.getLoading);
+
+//FILTER
+export const getFilterState = (state: State) => state.filter;
+
+export const getFilterFilteredList = createSelector(getFilterState, fromFilter.getFilteredList);
+export const getFilterQuery = createSelector(getFilterState, fromFilter.getQuery);
+export const getFilterLoading = createSelector(getFilterState, fromFilter.getFiltering);
+
