@@ -28,8 +28,14 @@ import {Observable} from "rxjs";
                     </a>
                 </md-nav-list>
             </md-sidenav>
-            <wg-filter [filtering]="filtering$ | async" [query]="query$ | async" (filter)="filterGuest($event)"></wg-filter>
-            <wg-guest-list [guestList]="guestList$ | async" [loading]="loading$ | async"></wg-guest-list>
+            <wg-filter 
+                [filtering]="filtering$ | async" 
+                [query]="query$ | async" 
+                [filteredGuestLength]="filteredGuestLength$ | async" 
+                [filteredGuestGroupLength]="filteredGuestGroupLength$ | async" 
+                (filter)="filterGuest($event)">
+            </wg-filter>
+            <wg-guest-list [guestList]="guestList$ | async" [filteredNames]="filteredIds$ | async" [loading]="loading$ | async"></wg-guest-list>
         </md-sidenav-container>
 `
 })
@@ -37,14 +43,24 @@ export class GuestPageComponent {
 
     guestList$: Observable<GuestListItem[]>;
     loading$: Observable<boolean>;
+
     query$: Observable<string>;
+    filteredIds$: Observable<string[]>;
     filtering$: Observable<boolean>;
+
+    filteredGuestLength$: Observable<number>;
+    filteredGuestGroupLength$: Observable<number>;
+
 
     constructor(private _store: Store<fromRoot.State>) {
         this.query$ = _store.select(fromRoot.getFilterQuery);
+        this.filteredIds$ = _store.select(fromRoot.getFilterFilteredIds);
         this.filtering$ = _store.select(fromRoot.getFilterLoading);
 
-        this.guestList$ = _store.select(fromRoot.getFilterFilteredList);
+        this.filteredGuestLength$ = _store.select(fromRoot.getFilteredGuestLength);
+        this.filteredGuestGroupLength$ = _store.select(fromRoot.getFilteredGuestGroupLength);
+
+        this.guestList$ = _store.select(fromRoot.getFilteredGuestList);
         this.loading$ = _store.select(fromRoot.getGuestListLoading);
 
         this._store.dispatch(new guest.LoadAction());

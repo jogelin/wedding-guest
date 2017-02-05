@@ -2,11 +2,12 @@ import {Action} from "@ngrx/store";
 import {type} from "../shared/util";
 import {GuestListItem} from "./guest.model";
 
-export const ActionTypes = {
+const ActionTypes = {
     LOAD: type('[Guest] Load'),
     LOAD_SUCCESS: type('[Guest] Load Success'),
     LOAD_FAIL: type('[Guest] Load Fail')
 };
+export {ActionTypes as GuestActionTypes};
 
 export class LoadAction implements Action {
     type = ActionTypes.LOAD;
@@ -28,6 +29,7 @@ export class LoadFailAction implements Action {
     constructor(public payload: any) {
     }
 }
+
 
 export type GuestActions
     = LoadAction

@@ -26,6 +26,8 @@ import {Component, Input, Output, EventEmitter} from "@angular/core";
             <md-input-container>
                 <input md-input [value]="query" pattern="^([!A-Z]+)( and [!A-Z]+)*" placeholder="Filter the list" (keyup)="filter.emit($event.target.value)">
             </md-input-container>
+            Total filtered : {{filteredGuestLength}}<br>
+            Total Group : {{filteredGuestGroupLength}}
         </md-card>
     `
 })
@@ -33,6 +35,10 @@ export class FilterComponent {
     @Input() query: string = '';
     @Input() filtering = false;
     @Output() filter = new EventEmitter<string>();
+
+    @Input() filteredGuestLength: number = 0;
+    @Input() filteredGuestGroupLength: number = 0;
+
 
     // match with ^([!A-Z]+)( and [!A-Z]+)*
 }

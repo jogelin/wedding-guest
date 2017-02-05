@@ -213,7 +213,7 @@
                 {"name": "Clayton Walsh", "groups": ["FAMILY","FROM_JO","CIVIL","CELEBRATION","SOIREE","CIVIL_NOT_SURE","THEDAY_NOT_SURE"], "email":""},
                 {"name": "Elouan", "groups": ["FAMILY","ENFANT","FROM_JO","CIVIL","CELEBRATION","SOIREE","CIVIL_NOT_SURE","THEDAY_NOT_SURE"], "email":""},
                 {"name": "Andrew", "groups": ["FAMILY","ENFANT","FROM_JO","CIVIL","CELEBRATION","SOIREE","CIVIL_NOT_SURE","THEDAY_NOT_SURE"], "email":""},
-                {"name": "????", "groups": ["FAMILY","ENFANT","FROM_JO","CIVIL","CELEBRATION","SOIREE","CIVIL_NOT_SURE","THEDAY_NOT_SURE"], "email":""}
+                {"name": "???? W", "groups": ["FAMILY","ENFANT","FROM_JO","CIVIL","CELEBRATION","SOIREE","CIVIL_NOT_SURE","THEDAY_NOT_SURE"], "email":""}
             ],
             "address":"Walsh<br>Le bourg<br>24140 Maurens<br>France"
         },
@@ -254,7 +254,7 @@
         {
             "guests": [
                 {"name": "Aurélie Massin", "groups": ["FRIEND","FROM_JO","CELEBRATION","SOIREE","THEDAY_NOT_SURE"], "email":"aurelie@b-crea.be"},
-                {"name": "???????", "groups": ["FRIEND","FROM_JO","CELEBRATION","SOIREE","THEDAY_NOT_SURE"], "email":""}
+                {"name": "??????? M", "groups": ["FRIEND","FROM_JO","CELEBRATION","SOIREE","THEDAY_NOT_SURE"], "email":""}
             ],
             "address":""
         },
@@ -328,14 +328,14 @@
         {
             "guests": [
                 {"name": "Oleg Korolenko", "groups": ["FRIEND","FROM_JO","SOIREE","THEDAY_NOT_SURE"], "email":"oleg.korolenko@gmail.com"},
-                {"name": "?????", "groups": ["FRIEND","FROM_JO","SOIREE","THEDAY_NOT_SURE"], "email":""}
+                {"name": "????? K", "groups": ["FRIEND","FROM_JO","SOIREE","THEDAY_NOT_SURE"], "email":""}
             ],
             "address":""
         },
         {
             "guests": [
                 {"name": "Richard Guitter", "groups": ["FRIEND","FROM_JO","SOIREE","THEDAY_NOT_SURE"], "email":"rguitter@gmail.com"},
-                {"name": "????", "groups": ["FRIEND","FROM_JO","SOIREE","THEDAY_NOT_SURE"], "email":""}
+                {"name": "???? G", "groups": ["FRIEND","FROM_JO","SOIREE","THEDAY_NOT_SURE"], "email":""}
             ],
             "address":""
         },
@@ -369,8 +369,8 @@
         },
         {
             "guests": [
-                {"name": "Mélodie", "groups": ["FRIEND","FROM_AL","SOIREE","THEDAY_NOT_SURE"], "email":""},
-                {"name": "?????", "groups": ["FRIEND","FROM_AL","SOIREE","THEDAY_NOT_SURE"], "email":""}
+                {"name": "Mélodie H", "groups": ["FRIEND","FROM_AL","SOIREE","THEDAY_NOT_SURE"], "email":""},
+                {"name": "????? H", "groups": ["FRIEND","FROM_AL","SOIREE","THEDAY_NOT_SURE"], "email":""}
             ],
             "address":""
         },

@@ -1,11 +1,12 @@
 import {Action} from "@ngrx/store";
 import {type} from "../shared/util";
 
-export const ActionTypes = {
+const ActionTypes = {
     FILTER: type('[Filter] Filter'),
     FILTER_COMPLETE: type('[Filter] Filter Complete'),
     FILTER_FAIL: type('[Filter] Filter Fail')
 };
+export {ActionTypes as FilterActionTypes};
 
 export class FilterAction implements Action {
     type = ActionTypes.FILTER;

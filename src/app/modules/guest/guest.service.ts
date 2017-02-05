@@ -15,20 +15,22 @@ export class GuestService {
     constructor(private _store: Store<fromRoot.State>) {
     }
 
-    filterGuestList(query: string): Observable<GuestListItem[]> {
+    filterGuestList(query: string): Observable<String[]> {
         const criterias: string[] = query.split(/ and /);
         const includes: string[] = criterias.filter(criteria => criteria.charAt(0) != '!');
-        const excludes: string[] = criterias.filter(criteria => criteria.charAt(0) == '!').map(criteria => criteria.substring(0, 1));
-
+        const excludes: string[] = criterias.filter(criteria => criteria.charAt(0) == '!').map(criteria => criteria.substring(1));
+console.log(excludes);
         return this._store.select(fromRoot.getGuestList)
             .map(guestList => guestList
-                .filter(guestListItem => this.filterGuestListItem(guestListItem, includes, excludes))
+                .map(guestListItem => this.filterGuestListItem(guestListItem, includes, excludes))
+                .reduce((acc, one) => acc.concat(one), [])
             );
     }
 
-    filterGuestListItem(guestListItem: GuestListItem, includes, excludes): boolean {
+    filterGuestListItem(guestListItem: GuestListItem, includes, excludes): string[] {
         return guestListItem.guests
-                .filter(guest => this.filterGuest(guest, includes, excludes)).length > 0;
+            .filter(guest => this.filterGuest(guest, includes, excludes))
+            .map(guest => guest.name);
     }
 
     filterGuest(guest: Guest, includes: string[], excludes: string[]): boolean {

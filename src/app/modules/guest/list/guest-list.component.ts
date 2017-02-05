@@ -14,11 +14,12 @@ import {GuestListItem} from "../guest.model";
     template: `
         <md-spinner *ngIf="loading"></md-spinner>
         <md-card *ngFor="let item of guestList">
-            <wg-guest-list-item [item]="item"></wg-guest-list-item>
+            <wg-guest-list-item [item]="item" [filteredNames]="filteredNames"></wg-guest-list-item>
         </md-card>
     `
 })
 export class GuestListComponent {
     @Input() guestList: GuestListItem[] = [];
+    @Input() filteredNames: string[] = [];
     @Input() loading: boolean = false;
 }

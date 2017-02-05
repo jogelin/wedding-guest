@@ -1,6 +1,5 @@
 import {GuestListItem} from "./guest.model";
-import * as guest from "./guest.actions";
-import {GuestActions} from "./guest.actions";
+import {GuestActions, GuestActionTypes} from "./guest.actions";
 
 export interface State {
     guestList: GuestListItem[];
@@ -17,20 +16,20 @@ export function reducer(state = initialState, action: GuestActions): State {
 
     switch (action.type) {
 
-        case guest.ActionTypes.LOAD: {
+        case GuestActionTypes.LOAD: {
             return Object.assign({}, state, {
                 loading: true
             });
         }
 
-        case guest.ActionTypes.LOAD_SUCCESS: {
+        case GuestActionTypes.LOAD_SUCCESS: {
             return {
                 loading: false,
                 guestList: action.payload
             };
         }
 
-        case guest.ActionTypes.LOAD_FAIL: {
+        case GuestActionTypes.LOAD_FAIL: {
             console.log(action, 'FAILED')
 
             return state;

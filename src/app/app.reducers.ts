@@ -76,7 +76,19 @@ export const getGuestListLoading = createSelector(getGuestState, fromGuest.getLo
 //FILTER
 export const getFilterState = (state: State) => state.filter;
 
-export const getFilterFilteredList = createSelector(getFilterState, fromFilter.getFilteredList);
+export const getFilterFilteredIds = createSelector(getFilterState, fromFilter.getFilteredIds);
 export const getFilterQuery = createSelector(getFilterState, fromFilter.getQuery);
 export const getFilterLoading = createSelector(getFilterState, fromFilter.getFiltering);
+
+//COMMON
+export const getFilteredGuestList = createSelector(getGuestList, getFilterFilteredIds, (guestList, filteredIds) =>
+    guestList.filter(guestListItem => guestListItem.guests
+        .filter(guest => filteredIds.includes(guest.name)).length > 0
+    )
+);
+export const getFilteredGuestLength = createSelector(getFilterFilteredIds, filteredIds => filteredIds.length);
+export const getFilteredGuestGroupLength = createSelector(getFilteredGuestList, filteredGuestList =>
+    filteredGuestList.map(guestListItem => guestListItem.guests.length)
+        .reduce((acc, one) => acc+one, 0)
+);
 

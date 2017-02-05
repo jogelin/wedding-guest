@@ -8,9 +8,11 @@ import {Observable} from "rxjs";
 import {Action} from "@ngrx/store";
 import * as guest from "./guest.actions";
 import * as filter from "../filter/filter.actions";
+import {FilterActionTypes} from "../filter/filter.actions";
 import {GuestListItem} from "./guest.model";
 import {Http} from "@angular/http";
 import {GuestService} from "./guest.service";
+import {GuestActionTypes} from "./guest.actions";
 
 
 @Injectable()
@@ -20,7 +22,7 @@ export class GuestEffects {
 
     @Effect()
     loadGuests$: Observable <Action> = this._actions$
-        .ofType(guest.ActionTypes.LOAD)
+        .ofType(GuestActionTypes.LOAD)
         //.startWith(new guest.LoadAction())
         .switchMap(() =>
             /*this._af.database.list('/guest-list')
@@ -35,7 +37,7 @@ export class GuestEffects {
 
     @Effect()
     filterGuests$: Observable <Action> = this._actions$
-        .ofType(filter.ActionTypes.FILTER)
+        .ofType(FilterActionTypes.FILTER)
         .debounceTime(300)
         .map((action: filter.FilterAction) => action.payload)
         .distinctUntilChanged()
