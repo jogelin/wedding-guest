@@ -28,6 +28,7 @@ import {Observable} from "rxjs";
                     </a>
                 </md-nav-list>
             </md-sidenav>
+            
             <wg-filter 
                 [filtering]="filtering$ | async" 
                 [query]="query$ | async" 
@@ -67,6 +68,8 @@ export class GuestPageComponent {
     }
 
     filterGuest(query: string) {
-        this._store.dispatch(new filter.FilterAction(query));
+        if(query.match(/^([!A-Z]+)( and [!A-Z]+)*$/)) {
+            this._store.dispatch(new filter.FilterAction(query));
+        }
     }
 }

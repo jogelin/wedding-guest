@@ -19,7 +19,7 @@ export class GuestService {
         const criterias: string[] = query.split(/ and /);
         const includes: string[] = criterias.filter(criteria => criteria.charAt(0) != '!');
         const excludes: string[] = criterias.filter(criteria => criteria.charAt(0) == '!').map(criteria => criteria.substring(1));
-console.log(excludes);
+
         return this._store.select(fromRoot.getGuestList)
             .map(guestList => guestList
                 .map(guestListItem => this.filterGuestListItem(guestListItem, includes, excludes))
