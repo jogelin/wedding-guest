@@ -1,12 +1,10 @@
-import {NgModule} from "@angular/core";
-import {SharedModule} from "../shared/shared.module";
-import {FilterComponent} from "./filter.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {NgModule} from '@angular/core';
+import {SharedModule} from '../shared/shared.module';
+import {FilterComponent} from './filter.component';
 
 @NgModule({
     imports: [
-        SharedModule,
-        ReactiveFormsModule
+        SharedModule
     ],
     declarations: [
         FilterComponent

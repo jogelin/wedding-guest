@@ -14,7 +14,7 @@ import {GuestListItem} from "../guest.model";
     template: `
         <md-spinner *ngIf="loading"></md-spinner>
         <md-card *ngFor="let item of guestList">
-            <wg-guest-list-item [item]="item" [filteredNames]="filteredNames"></wg-guest-list-item>
+            <wg-guest-list-item-edit [item]="item" [filteredNames]="filteredNames"></wg-guest-list-item-edit>
         </md-card>
     `
 })

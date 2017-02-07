@@ -1,10 +1,11 @@
-import {Component, Input} from "@angular/core";
-import "rxjs/add/operator/map";
-import {GuestListItem, Guest} from "../guest.model";
+import {Component, Input, OnInit} from '@angular/core';
+import 'rxjs/add/operator/map';
+import {GuestListItem} from '../guest.model';
+import {FormGroup, Validators, FormBuilder} from '@angular/forms';
 
 
 @Component({
-    selector: 'wg-guest-list-item',
+    selector: 'wg-guest-list-item-edit',
     styles: [`
         md-card {
           padding:0;
@@ -28,31 +29,40 @@ import {GuestListItem, Guest} from "../guest.model";
     `],
     template: `
         <md-grid-list *ngIf="item" cols="6" rowHeight="25px">
-            <div *ngFor="let guest of item.guests; let first=first">
-                <md-grid-tile [colspan]="1" [rowspan]="1" [class.disable]="matchFilter(guest.name)">
-                    {{guest.name}}
-                </md-grid-tile>
-                <md-grid-tile [colspan]="1" [rowspan]="1" [class.disable]="matchFilter(guest.name)">
-                    {{guest.email}}
-                </md-grid-tile>
-                <md-grid-tile [colspan]="3" [rowspan]="1" [class.disable]="matchFilter(guest.name)">
-                    <md-chip-list>
-                        <md-chip *ngFor="let group of guest.groups">{{group}}</md-chip>
-                    </md-chip-list>
-                </md-grid-tile>
-                <md-grid-tile
-                    *ngIf="first"
-                    [colspan]="1"
-                    [rowspan]="item.guests.length">
-                    <div [innerHTML]="item.address"></div>
-                </md-grid-tile>
+            <div formArrayName="guests">           
+                <div *ngFor="let guest of item.guests; let first=first; let i=index;">
+                    <div>
+                        <wg-guest-list-item-guest [guest]="guest" [form]="form.controls.guests.controls" [filteredNames]="filteredNames"></wg-guest-list-item-guest>
+                    </div>
+                    <md-grid-tile
+                        *ngIf="first"
+                        [colspan]="1"
+                        [rowspan]="item.guests.length">
+                        <div [innerHTML]="item.address"></div>
+                    </md-grid-tile>
+                </div>
             </div>
         </md-grid-list>
     `
 })
-export class GuestListItemComponent {
+export class GuestListItemEditComponent implements OnInit{
     @Input() item: GuestListItem;
     @Input() filteredNames: string[] = [];
+
+    form: FormGroup;
+
+    constructor(private _fb: FormBuilder) {
+    }
+
+    initGuests() {
+    }
+
+    ngOnInit(): void {
+        this.form = this._fb.group({
+            address: ['', Validators.required],
+            guests: this._fb.array([])
+        });
+    }
 
     matchFilter(guestName: string) {
         return !this.filteredNames.includes(guestName);
