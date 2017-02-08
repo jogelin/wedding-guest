@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from "@angular/core";
-import "rxjs/add/operator/map";
-import {GuestListItem, Guest} from "../guest.model";
+import {Component, Input, OnInit} from '@angular/core';
+import 'rxjs/add/operator/map';
+import {Guest} from '../guest.model';
 import {FormGroup, Validators, FormBuilder, FormArray} from '@angular/forms';
 
 
 @Component({
-    selector: 'wg-guest-list-item-edit',
+    selector: 'wg-guest-list-item-guest',
     styles: [`
 
         :host >>> figure {
@@ -24,51 +24,31 @@ import {FormGroup, Validators, FormBuilder, FormArray} from '@angular/forms';
         
     `],
     template: `
-        <div [formGroup]="form">
-        
-            <md-grid-tile [colspan]="1" [rowspan]="1" [class.disable]="matchFilter(guest.name)">
+        <div [formGroup]="form">re
+            <md-grid-tile [colspan]="1" [rowspan]="1" [class.disable]="matchFilter">
                 <md-input-container>
-                    <input md-input formcontrolname="name" />
+                    <input type="text" md-input formControlName="name" />
                 </md-input-container>
             </md-grid-tile>
-            <md-grid-tile [colspan]="1" [rowspan]="1" [class.disable]="matchFilter(guest.name)">
+            <md-grid-tile [colspan]="1" [rowspan]="1" [class.disable]="matchFilter">
                 <md-input-container>
-                    <input md-input formcontrolname="email" />
+                    <input type="email" md-input formControlName="email" />
                 </md-input-container>
-                {{guest.email}}
             </md-grid-tile>
-            <md-grid-tile [colspan]="3" [rowspan]="1" [class.disable]="matchFilter(guest.name)">
+            <md-grid-tile [colspan]="3" [rowspan]="1" [class.disable]="matchFilter">
                 <md-chip-list>
                     <div formArrayName="groups">
-                        <md-chip *ngFor="let group of guest.groups">{{group}}</md-chip>
+                        <md-chip *ngFor="let group of form.controls.groups.controls">{{group}}</md-chip>
                     </div>
                 </md-chip-list>
             </md-grid-tile>
         </div>
-
     `
 })
-export class GuestListItemGuestComponent implements OnInit{
-    @Input() guest: Guest;
-    @Input() filteredNames: string[] = [];
-
+export class GuestListItemGuestComponent {
+    @Input() matchFilter: boolean;
     @Input() form: FormGroup;
 
-    constructor(private _fb: FormBuilder) {
-
-    }
-
-    ngOnInit(): void {
-        this.form.push(
-            this._fb.group({
-                name: [this.guest.name, Validators.required],
-                email: [this.guest.name, Validators.required],
-                groups: this._fb.array([])
-
-        }));
-    }
-
-    matchFilter(guestName: string) {
-        return !this.filteredNames.includes(guestName);
+    constructor() {
     }
 }

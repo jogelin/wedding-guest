@@ -26,10 +26,6 @@ export class GuestEffects {
         .startWith(new guest.LoadAction())
         .switchMap(() =>
             this._af.database.list('/guest-list')
-                .do(tt => {
-                    this._af.database.object('/guest-list/0')
-                        .subscribe(rr => console.log(rr));
-                })
              .map((guests: GuestListItem[]) => new guest.LoadSuccessAction(guests))
              .catch(error => Observable.of(new guest.LoadFailAction(error)))
         );
