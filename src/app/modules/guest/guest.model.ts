@@ -1,7 +1,7 @@
 export class Guest {
     name: string;
     email: string;
-    groups: string[];
+    tags: string[];
 }
 
 export class GuestListItem {

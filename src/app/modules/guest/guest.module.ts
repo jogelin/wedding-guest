@@ -7,11 +7,12 @@ import {GuestPageComponent} from "./guest-page.component";
 import {EffectsModule} from "@ngrx/effects";
 import {GuestEffects} from "./guest.effects";
 import {HttpModule} from "@angular/http";
+import {SidebarModule} from "./sidebar/sidebar.module";
 
 @NgModule({
     imports: [
         SharedModule,
-        FilterModule,
+        SidebarModule,
         GuestListModule,
         HttpModule,
 

@@ -4,13 +4,21 @@ import {Router, ActivatedRoute} from '@angular/router';
 @Component({
     selector: 'wg-root',
     template: `
-        <md-toolbar color="#0288d1">
-            <h2>Wedding Guests</h2>
-            <button md-button [routerLink]="'guests'">
-                Guest List
+        <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+            <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse"
+                    data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-        </md-toolbar>
-        <router-outlet></router-outlet>
+            <a class="navbar-brand" href="#">Wedding Guests</a>
+            <ul class="navbar-nav mr-auto">
+            
+            </ul>
+            <wg-filter></wg-filter>
+        </nav>
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
     `
 })
 export class AppComponent {

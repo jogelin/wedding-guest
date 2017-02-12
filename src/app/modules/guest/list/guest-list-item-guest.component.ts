@@ -1,54 +1,66 @@
-import {Component, Input, OnInit} from '@angular/core';
-import 'rxjs/add/operator/map';
-import {Guest} from '../guest.model';
-import {FormGroup, Validators, FormBuilder, FormArray} from '@angular/forms';
+import {Component, Input, OnInit, OnChanges, SimpleChanges} from "@angular/core";
+import "rxjs/add/operator/map";
+import {FormGroup, FormArray} from "@angular/forms";
+import {Select2OptionData} from "ng2-select2";
 
 
 @Component({
     selector: 'wg-guest-list-item-guest',
     styles: [`
 
-        :host >>> figure {
-          justify-content:flex-start;
-          padding-left: 10px;
-        }
-        .md-chip:not(.md-basic-chip) {
-          padding:2px;
-          border-radius: 3px;
-          font-size: 12px;
-        }
-        
-        .disable {
-            background-color:grey;
-        }
         
     `],
     template: `
-        <div [formGroup]="form">re
-            <md-grid-tile [colspan]="1" [rowspan]="1" [class.disable]="matchFilter">
-                <md-input-container>
-                    <input type="text" md-input formControlName="name" />
-                </md-input-container>
-            </md-grid-tile>
-            <md-grid-tile [colspan]="1" [rowspan]="1" [class.disable]="matchFilter">
-                <md-input-container>
-                    <input type="email" md-input formControlName="email" />
-                </md-input-container>
-            </md-grid-tile>
-            <md-grid-tile [colspan]="3" [rowspan]="1" [class.disable]="matchFilter">
-                <md-chip-list>
-                    <div formArrayName="groups">
-                        <md-chip *ngFor="let group of form.controls.groups.controls">{{group}}</md-chip>
-                    </div>
-                </md-chip-list>
-            </md-grid-tile>
+        <div class="row" [formGroup]="form">
+            <div class="col-sm-3 pr-0" [class.disable]="matchFilter">
+                <input class="form-control form-control-sm" type="text" formControlName="name" />
+            </div>
+            <div class="col-sm-3 pl-1 pr-1" [class.disable]="matchFilter">
+                <input class="form-control form-control-sm" type="email" formControlName="email" />
+            </div>
+            <div class="col-sm-6 pl-1 pr-1" [class.disable]="matchFilter">
+                <div formArrayName="tags">
+                    <select2 [data]="tagOptions" [value]="tagValues" [options]="select2Options" (valueChanged)="valueChanged($event)"></select2>
+                </div>
+            </div>
         </div>
     `
 })
-export class GuestListItemGuestComponent {
+export class GuestListItemGuestComponent implements OnInit, OnChanges {
     @Input() matchFilter: boolean;
     @Input() form: FormGroup;
+    @Input() tags: string[];
 
-    constructor() {
+    tagOptions: Select2OptionData[];
+    tagValues: string[];
+
+    select2Options: Select2Options = {
+        tags: true,
+        multiple: true
+    };
+
+    ngOnInit(): void {
+        this.tagValues = (this.form.get('tags') as FormArray).controls.reduce((acc, one) => acc.concat(one.value),[]);
+        (this.form.get('tags') as FormArray).valueChanges
+            .debounceTime(300)
+            .distinctUntilChanged()
+            .subscribe(value => console.log('valuechanges: ',value));
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if(changes['tags'] && JSON.stringify(changes['tags'].previousValue) !== JSON.stringify(changes['tags'].currentValue)) {
+            this.tagOptions = this.tags
+                .map(tag => {
+                    return {
+                        id: tag,
+                        text: tag
+                    } as Select2OptionData;
+                });
+
+        }
+    }
+
+    valueChanged(tags): void {
+        (this.form.get('tags') as FormArray).patchValue(tags);
     }
 }

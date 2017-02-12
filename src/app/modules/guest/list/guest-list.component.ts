@@ -6,20 +6,23 @@ import {GuestListItem} from "../guest.model";
 @Component({
     selector: 'wg-guest-list',
     styles: [`
-        md-card {
-          padding:0;
-          margin:7px;
-        }   
+        .list-tag .list-tag-item {
+            margin-bottom: 2px;
+        }
     `],
     template: `
-        <md-spinner *ngIf="loading"></md-spinner>
-        <md-card *ngFor="let item of guestList">
-            <wg-guest-list-item [item]="item" [filteredNames]="filteredNames"></wg-guest-list-item>
-        </md-card>
+        <i *ngIf="loading" class="fa fa-spinner" aria-hidden="true"></i>
+        <div class="list-tag">
+            <div *ngFor="let item of guestList" class="list-tag-item p-1">
+                <wg-guest-list-item class="w-100" [item]="item" [filteredNames]="filteredNames" [tags]="tags"></wg-guest-list-item>
+            </div>
+        </div>
     `
 })
 export class GuestListComponent {
     @Input() guestList: GuestListItem[] = [];
     @Input() filteredNames: string[] = [];
     @Input() loading: boolean = false;
+    @Input() tags: string[];
+
 }

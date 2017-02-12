@@ -34,8 +34,8 @@ export class GuestService {
     }
 
     filterGuest(guest: Guest, includes: string[], excludes: string[]): boolean {
-        return includes.every((val) => guest.groups.includes(val)) &&
-            excludes.every((val) => !guest.groups.includes(val))
+        return includes.every((val) => guest.tags.includes(val)) &&
+            excludes.every((val) => !guest.tags.includes(val))
     }
 
 }

@@ -7,48 +7,40 @@ import {FormGroup, Validators, FormBuilder, FormArray} from '@angular/forms';
 @Component({
     selector: 'wg-guest-list-item',
     styles: [`
-        md-card {
-          padding:0;
-          margin:7px;
+
+        form > div > div:not(:last-child) {
+            padding-bottom: 5px;
         }
 
-        :host >>> figure {
-          justify-content:flex-start;
-          padding-left: 10px;
+        textarea.form-control {
+            height: 100%;
         }
-        .md-chip:not(.md-basic-chip) {
-          padding:2px;
-          border-radius: 3px;
-          font-size: 12px;
-        }
-        
+
         .disable {
             background-color:grey;
         }
-        
     `],
     template: `
-        <md-grid-list *ngIf="item" cols="6" rowHeight="25px" [formGroup]="form">
-                <template formArrayName="guests">  
-                    <template *ngFor="let guest of form.controls.guests.controls; let first=first; let i=index;">
-                            <wg-guest-list-item-guest 
-                                [matchFilter]="true" 
-                                [form]="form.controls.guests.controls[i]">                           
-                            </wg-guest-list-item-guest><div></div>
-                        <md-grid-tile
-                            *ngIf="first"
-                            [colspan]="1"
-                            [rowspan]="item.guests.length">
-                            <textarea [value]="form.controls.address.value"></textarea>
-                        </md-grid-tile>
-                    </template>
-                </template>
-        </md-grid-list>
+        <form class="row d-flex align-items-stretch" *ngIf="item" [formGroup]="form">
+            <div class="col-sm-10">            
+                <div *ngFor="let guestGroup of form.controls.guests.controls; let i=index;">
+                    <wg-guest-list-item-guest 
+                        [matchFilter]="true" 
+                        [form]="guestGroup"
+                        [tags]="tags">                           
+                    </wg-guest-list-item-guest>
+                </div>
+            </div>
+            <div class="col-sm-2 pl-1">
+                <textarea class="form-control">{{form.controls.address.value}}</textarea>
+            </div>
+        </form>
     `
 })
 export class GuestListItemComponent implements OnInit{
     @Input() item: GuestListItem;
     @Input() filteredNames: string[] = [];
+    @Input() tags: string[];
 
     form: FormGroup;
 
@@ -63,15 +55,23 @@ export class GuestListItemComponent implements OnInit{
     }
 
     initGuests(): FormArray {
-        return this._fb.array(this.item.guests.map(guest => this.initGuest(guest)));
+        return this._fb.array(
+            this.item.guests.map(guest => this.initGuest(guest))
+        );
     }
 
     initGuest(guest: Guest): FormGroup {
         return this._fb.group({
             name: [guest.name, Validators.required],
             email: [guest.email, Validators.required],
-            groups: this._fb.array([])
+            tags: this.initTags(guest.tags)
         });
+    }
+
+    initTags(tags: string[]): FormArray {
+        return this._fb.array(
+            tags.map(tag => this._fb.control([tag]))
+        );
     }
 
     matchFilter(guestName: string) {

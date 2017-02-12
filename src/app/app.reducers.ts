@@ -73,6 +73,15 @@ export const getGuestState = (state: State) => state.guest;
 export const getGuestList = createSelector(getGuestState, fromGuest.getGuestList);
 export const getGuestListLoading = createSelector(getGuestState, fromGuest.getLoading);
 
+export const getGuestListTags = createSelector(getGuestList, guestList => {
+    const tags = new Set<string>();
+    guestList.forEach(guestListItem =>
+        guestListItem.guests.forEach(guest =>
+            guest.tags.forEach(tag => tags.add(tag)))
+    );
+    return Array.from(tags);
+});
+
 //FILTER
 export const getFilterState = (state: State) => state.filter;
 
