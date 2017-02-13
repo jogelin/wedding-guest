@@ -30,7 +30,7 @@ export function reducer(state = initialState, action: GuestActions): State {
         }
 
         case GuestActionTypes.LOAD_FAIL: {
-            console.log(action, 'FAILED')
+            console.log(action, 'FAILED');
 
             return state;
         }

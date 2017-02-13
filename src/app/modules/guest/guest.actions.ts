@@ -11,6 +11,7 @@ export {ActionTypes as GuestActionTypes};
 
 export class LoadAction implements Action {
     type = ActionTypes.LOAD;
+    payload;
 
     constructor() {
     }

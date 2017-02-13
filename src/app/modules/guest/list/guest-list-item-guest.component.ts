@@ -7,7 +7,23 @@ import {Select2OptionData} from "ng2-select2";
 @Component({
     selector: 'wg-guest-list-item-guest',
     styles: [`
-
+        :host >>> .select2 {
+            width:100% ! important;
+            line-height: 1 !important;
+            font-size: .875rem;
+            min-height:26px !important;
+            border-radius: .2rem;
+        }
+        
+        :host >>> .select2-selection__rendered {
+            padding:0 !important;
+        }
+        
+        :host >>> .select2-selection__choice {
+            padding:1px !important;
+            padding-bottom:3px !important;
+            margin:2px !important;
+        }
         
     `],
     template: `
@@ -36,7 +52,8 @@ export class GuestListItemGuestComponent implements OnInit, OnChanges {
 
     select2Options: Select2Options = {
         tags: true,
-        multiple: true
+        multiple: true,
+        width: '100%'
     };
 
     ngOnInit(): void {
