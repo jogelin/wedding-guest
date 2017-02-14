@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, OnChanges, SimpleChanges} from "@angular/core";
+import {Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitter} from "@angular/core";
 import "rxjs/add/operator/map";
 import {FormGroup, FormArray} from "@angular/forms";
 import {Select2OptionData} from "ng2-select2";
@@ -36,7 +36,7 @@ import {Select2OptionData} from "ng2-select2";
             </div>
             <div class="col-sm-6 pl-1 pr-1" [class.disable]="matchFilter">
                 <div formArrayName="tags">
-                    <select2 [data]="tagOptions" [value]="tagValues" [options]="select2Options" (valueChanged)="valueChanged($event)"></select2>
+                    <select2 [data]="tagOptions" [value]="tagValues" [options]="select2Options" (valueChanged)="tagsValueChanged.emit($event)"></select2>
                 </div>
             </div>
         </div>
@@ -46,6 +46,7 @@ export class GuestListItemGuestComponent implements OnInit, OnChanges {
     @Input() matchFilter: boolean;
     @Input() form: FormGroup;
     @Input() tags: string[];
+    @Output() tagsValueChanged = new EventEmitter();
 
     tagOptions: Select2OptionData[];
     tagValues: string[];
@@ -57,15 +58,11 @@ export class GuestListItemGuestComponent implements OnInit, OnChanges {
     };
 
     ngOnInit(): void {
-        this.tagValues = (this.form.get('tags') as FormArray).controls.reduce((acc, one) => acc.concat(one.value),[]);
-        (this.form.get('tags') as FormArray).valueChanges
-            .debounceTime(300)
-            .distinctUntilChanged()
-            .subscribe(value => console.log('valuechanges: ',value));
+        this.tagValues = (this.form.get('tags') as FormArray).controls.reduce((acc, one) => acc.concat(one.value), []);
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        if(changes['tags'] && JSON.stringify(changes['tags'].previousValue) !== JSON.stringify(changes['tags'].currentValue)) {
+        if (changes['tags'] && JSON.stringify(changes['tags'].previousValue) !== JSON.stringify(changes['tags'].currentValue)) {
             this.tagOptions = this.tags
                 .map(tag => {
                     return {
@@ -77,7 +74,9 @@ export class GuestListItemGuestComponent implements OnInit, OnChanges {
         }
     }
 
-    valueChanged(tags): void {
-        (this.form.get('tags') as FormArray).patchValue(tags);
-    }
+    //
+    // valueChanged(tags): void {
+    //     (this.form.get('tags') as FormArray).setValue(tags.value);
+    // }
+
 }

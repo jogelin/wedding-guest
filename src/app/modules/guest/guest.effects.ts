@@ -3,7 +3,7 @@
  */
 import {Injectable} from "@angular/core";
 import {Actions, Effect} from "@ngrx/effects";
-import {AngularFire} from "angularfire2";
+import {AngularFire, FirebaseObjectObservable} from "angularfire2";
 import {Observable} from "rxjs";
 import {Action} from "@ngrx/store";
 import * as guest from "./guest.actions";
@@ -48,4 +48,16 @@ export class GuestEffects {
             .map((filteredNames: string[]) => new filter.FilterCompleteAction(filteredNames))
             .catch(error => Observable.of(new filter.FilterFailAction(error)))
         );
+
+    @Effect()
+    updateGuestListItem$: Observable <Action> = this._actions$
+        .ofType(GuestActionTypes.UPDATE)
+        .map((action: guest.UpdateAction) => action.payload)
+        .switchMap((guestListItem: GuestListItem) => {
+            const entity = this._af.database.object(`/guest-list${guestListItem.$key}`);
+            return entity.set(guestListItem)
+                .then(() => new guest.UpdateSuccessAction())
+                .catch(err => new guest.UpdateFailedAction(err));
+        });
+
 }

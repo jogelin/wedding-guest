@@ -1,7 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {GuestListItem, Guest} from '../guest.model';
-import {FormGroup, Validators, FormBuilder, FormArray} from '@angular/forms';
+import {FormGroup, Validators, FormBuilder, FormArray, FormControl} from '@angular/forms';
+import {Store} from "@ngrx/store";
+import * as fromRoot from "../../../app.reducers";
+import {UpdateAction} from "../guest.actions";
 
 
 @Component({
@@ -27,12 +30,14 @@ import {FormGroup, Validators, FormBuilder, FormArray} from '@angular/forms';
                     <wg-guest-list-item-guest 
                         [matchFilter]="true" 
                         [form]="guestGroup"
-                        [tags]="tags">                           
+                        [tags]="tags"
+                        (tagsValueChanged)="tagsValueChanged(tags, i)" >                           
                     </wg-guest-list-item-guest>
                 </div>
             </div>
             <div class="col-sm-2 pl-1">
                 <textarea class="form-control">{{form.controls.address.value}}</textarea>
+
             </div>
         </form>
     `
@@ -44,7 +49,7 @@ export class GuestListItemComponent implements OnInit{
 
     form: FormGroup;
 
-    constructor(private _fb: FormBuilder) {
+    constructor(private _fb: FormBuilder, private _store: Store<fromRoot.State>) {
     }
 
     ngOnInit(): void {
@@ -52,6 +57,11 @@ export class GuestListItemComponent implements OnInit{
             address: [this.item.address, Validators.required],
             guests: this.initGuests()
         });
+
+        this.form.valueChanges
+            .debounceTime(300)
+            .distinctUntilChanged()
+            .subscribe((guestListItem:GuestListItem) => this._store.dispatch(new UpdateAction(guestListItem)));
     }
 
     initGuests(): FormArray {
@@ -64,14 +74,18 @@ export class GuestListItemComponent implements OnInit{
         return this._fb.group({
             name: [guest.name, Validators.required],
             email: [guest.email, Validators.required],
-            tags: this.initTags(guest.tags)
+            tags: this._fb.array(this.initTags(guest.tags))
         });
     }
 
-    initTags(tags: string[]): FormArray {
-        return this._fb.array(
-            tags.map(tag => this._fb.control([tag]))
-        );
+    initTags(tags: string[]): FormControl[] {
+        return tags.map(tag => this._fb.control(tag));
+    }
+
+    tagsValueChanged(event, i):void {
+        console.log(event);
+        /*let guest:FormGroup = (this.form.get('guests') as FormArray).controls[i] as FormGroup;
+        (guest.get('tags') as FormArray).setValue(tags);*/
     }
 
     matchFilter(guestName: string) {

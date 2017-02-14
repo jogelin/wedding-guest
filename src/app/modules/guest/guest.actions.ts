@@ -5,7 +5,10 @@ import {GuestListItem} from "./guest.model";
 const ActionTypes = {
     LOAD: type('[Guest] Load'),
     LOAD_SUCCESS: type('[Guest] Load Success'),
-    LOAD_FAIL: type('[Guest] Load Fail')
+    LOAD_FAIL: type('[Guest] Load Fail'),
+    UPDATE: type('[Guest] Update'),
+    UPDATE_SUCCESS: type('[Guest] Update Success'),
+    UPDATE_FAILED: type('[Guest] Update Failed')
 };
 export {ActionTypes as GuestActionTypes};
 
@@ -31,8 +34,29 @@ export class LoadFailAction implements Action {
     }
 }
 
+export class UpdateAction implements Action {
+    type = ActionTypes.UPDATE;
+
+    constructor(public payload: GuestListItem) {
+    }
+}
+export class UpdateSuccessAction implements Action {
+    type = ActionTypes.UPDATE_SUCCESS;
+    payload;
+
+    constructor() {
+    }
+}
+export class UpdateFailedAction implements Action {
+    type = ActionTypes.UPDATE_FAILED;
+
+    constructor(public payload: any) {
+    }
+}
 
 export type GuestActions
     = LoadAction
     | LoadSuccessAction
-    | LoadFailAction;
+    | LoadFailAction
+    | UpdateAction
+    | UpdateSuccessAction;

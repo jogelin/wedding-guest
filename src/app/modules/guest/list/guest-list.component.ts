@@ -14,7 +14,11 @@ import {GuestListItem} from "../guest.model";
         <i *ngIf="loading" class="fa fa-spinner" aria-hidden="true"></i>
         <div class="list-tag">
             <div *ngFor="let item of guestList" class="list-tag-item p-1">
-                <wg-guest-list-item class="w-100" [item]="item" [filteredNames]="filteredNames" [tags]="tags"></wg-guest-list-item>
+                <wg-guest-list-item class="w-100" 
+                    [item]="item" 
+                    [filteredNames]="filteredNames" 
+                    [tags]="tags">
+                </wg-guest-list-item>
             </div>
         </div>
     `
