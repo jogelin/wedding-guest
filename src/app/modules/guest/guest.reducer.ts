@@ -35,6 +35,15 @@ export function reducer(state = initialState, action: GuestActions): State {
             return state;
         }
 
+       /* case GuestActionTypes.UPDATE_SUCCESS: {
+            const guestListItem:GuestListItem = action.payload;
+            const newState = Object.assign({}, state, {
+                guestList: [...state.guestList]
+            });
+            newState.guestList[guestListItem.$key] = guestListItem;
+            return newState;
+        }*/
+
         default: {
             return state;
         }

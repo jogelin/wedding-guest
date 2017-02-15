@@ -53,10 +53,11 @@ export class GuestEffects {
     updateGuestListItem$: Observable <Action> = this._actions$
         .ofType(GuestActionTypes.UPDATE)
         .map((action: guest.UpdateAction) => action.payload)
-        .switchMap((guestListItem: GuestListItem) => {
-            const entity = this._af.database.object(`/guest-list${guestListItem.$key}`);
-            return entity.set(guestListItem)
-                .then(() => new guest.UpdateSuccessAction())
+        .switchMap(({$key, data}) => {
+            const entity = this._af.database.list('/guest-list');
+            console.log()
+            return entity.update($key, data)
+                .then(() => new guest.UpdateSuccessAction(data))
                 .catch(err => new guest.UpdateFailedAction(err));
         });
 

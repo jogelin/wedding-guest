@@ -6,14 +6,14 @@ import {GuestListItem} from "../guest.model";
 @Component({
     selector: 'wg-guest-list',
     styles: [`
-        .list-tag .list-tag-item {
+        .list-group .list-group-item {
             margin-bottom: 2px;
         }
     `],
     template: `
         <i *ngIf="loading" class="fa fa-spinner" aria-hidden="true"></i>
-        <div class="list-tag">
-            <div *ngFor="let item of guestList" class="list-tag-item p-1">
+        <div class="list-group">
+            <div *ngFor="let item of guestList" class="list-group-item p-1">
                 <wg-guest-list-item class="w-100" 
                     [item]="item" 
                     [filteredNames]="filteredNames" 

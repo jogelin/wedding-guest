@@ -28,13 +28,13 @@ import {Select2OptionData} from "ng2-select2";
     `],
     template: `
         <div class="row" [formGroup]="form">
-            <div class="col-sm-3 pr-0" [class.disable]="matchFilter">
+            <div class="col-sm-3 pr-0" [class.active]="matchFilter">
                 <input class="form-control form-control-sm" type="text" formControlName="name" />
             </div>
-            <div class="col-sm-3 pl-1 pr-1" [class.disable]="matchFilter">
+            <div class="col-sm-3 pl-1 pr-1" [class.active]="matchFilter">
                 <input class="form-control form-control-sm" type="email" formControlName="email" />
             </div>
-            <div class="col-sm-6 pl-1 pr-1" [class.disable]="matchFilter">
+            <div class="col-sm-6 pl-1 pr-1" [class.active]="matchFilter">
                 <div formArrayName="tags">
                     <select2 [data]="tagOptions" [value]="tagValues" [options]="select2Options" (valueChanged)="tagsValueChanged.emit($event)"></select2>
                 </div>

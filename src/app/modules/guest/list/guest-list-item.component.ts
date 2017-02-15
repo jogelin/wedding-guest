@@ -28,7 +28,7 @@ import {UpdateAction} from "../guest.actions";
             <div class="col-sm-10">            
                 <div *ngFor="let guestGroup of form.controls.guests.controls; let i=index;">
                     <wg-guest-list-item-guest 
-                        [matchFilter]="true" 
+                        [matchFilter]="matchFilter(guestGroup.get('name').value)" 
                         [form]="guestGroup"
                         [tags]="tags"
                         (tagsValueChanged)="tagsValueChanged(tags, i)" >                           
@@ -61,7 +61,9 @@ export class GuestListItemComponent implements OnInit{
         this.form.valueChanges
             .debounceTime(300)
             .distinctUntilChanged()
-            .subscribe((guestListItem:GuestListItem) => this._store.dispatch(new UpdateAction(guestListItem)));
+            .subscribe((guestListItem:GuestListItem) => this._store.dispatch(
+                new UpdateAction({$key:this.item.$key, data:guestListItem})
+            ));
     }
 
     initGuests(): FormArray {

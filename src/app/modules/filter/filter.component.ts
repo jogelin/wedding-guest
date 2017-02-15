@@ -32,7 +32,7 @@ export class FilterComponent implements OnInit {
         this.filtering$ = _store.select(fromRoot.getFilterLoading);
 
         this.form = this._fb.group({
-            query: ['', Validators.pattern(/^([!A-Z]+)( and [!A-Z]+)*$/)]
+            query: ['', Validators.pattern(/^([!A-Z_-]+)( and [!A-Z_-]+)*$/)]
         });
     }
 
