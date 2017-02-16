@@ -1,7 +1,7 @@
 /**
  * Created by Joni on 26/01/2017.
  */
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Input} from "@angular/core";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import * as fromRoot from "../../../app.reducers";
@@ -15,22 +15,16 @@ import * as fromRoot from "../../../app.reducers";
     template: `
         <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="">Total filtered : {{filteredGuestLength$ | async}}</a>
+                <a class="nav-link">Total filtered : {{filteredGuestLength$ | async}}</a>
             </li>
             <li class="nav-item">
-                
-                <a class="nav-link" href="">Total Group : {{filteredGuestGroupLength$ | async}}</a>
+                <a class="nav-link">Total Group : {{filteredGuestGroupLength$ | async}}</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Analytics</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Export</a>
-            </li>
+            <ng-content></ng-content>
         </ul>
     `
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
 
     filteredGuestLength$: Observable<number>;
     filteredGuestGroupLength$: Observable<number>;
@@ -38,9 +32,5 @@ export class SidebarComponent implements OnInit {
     constructor(private _store: Store<fromRoot.State>) {
         this.filteredGuestLength$ = _store.select(fromRoot.getFilteredGuestLength);
         this.filteredGuestGroupLength$ = _store.select(fromRoot.getFilteredGuestGroupLength);
-    }
-
-    ngOnInit(): void {
-
     }
 }

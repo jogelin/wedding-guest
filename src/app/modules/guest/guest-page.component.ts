@@ -5,7 +5,7 @@ import "rxjs/add/operator/map";
 import {Store} from "@ngrx/store";
 import {GuestListItem} from "./guest.model";
 import {Observable} from "rxjs";
-
+import * as filter from "../filter/filter.actions";
 
 @Component({
     selector: 'wg-guest-page',
@@ -13,10 +13,16 @@ import {Observable} from "rxjs";
     `],
     template: `
         <div class="row">    
-            <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
-                <wg-sidebar></wg-sidebar>
+            <nav class="col-sm-4 col-md-3 hidden-xs-down bg-faded sidebar">
+                <wg-sidebar>
+                    <li *ngFor="let tag of tags$ | async" class="nav-item">
+                        <a class="nav-link">
+                            <wg-tag-switch [tag]="tag" [query]="query$ | async" (tagSwitch)="onTagSwitch(value)"></wg-tag-switch>
+                        </a>
+                    </li>
+                </wg-sidebar>
             </nav>  
-            <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+            <main class="col-sm-8 offset-sm-4 col-md-9 offset-md-3 pt-3">
                 <wg-guest-list 
                     [guestList]="guestList$ | async" 
                     [filteredNames]="filteredIds$ | async"
@@ -33,6 +39,8 @@ export class GuestPageComponent {
     loading$: Observable<boolean>;
     filteredIds$: Observable<string[]>;
     tags$: Observable<string[]>;
+    query$: Observable<string>;
+
 
     constructor(private _store: Store<fromRoot.State>) {
         this.filteredIds$ = _store.select(fromRoot.getFilterFilteredIds);
@@ -42,7 +50,13 @@ export class GuestPageComponent {
 
         this.tags$ = _store.select(fromRoot.getGuestListTags);
 
+        this.query$ = _store.select(fromRoot.getFilterQuery);
+
         this._store.dispatch(new guest.LoadAction());
     }
 
+    onTagSwitch(value: string): void {
+        console.log('df', value);
+        this._store.dispatch(new filter.FilterAction(null));
+    }
 }

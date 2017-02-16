@@ -7,5 +7,5 @@ export class Guest {
 export class GuestListItem {
     guests: Guest[];
     address: string;
-    "$key":string;
+    $key?:string;
 }

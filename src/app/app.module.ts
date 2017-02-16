@@ -10,6 +10,8 @@ import {StoreModule} from "@ngrx/store";
 import * as fromRoot from "./app.reducers";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {FilterModule} from "./modules/filter/filter.module";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {FormsModule} from "@angular/forms";
 
 export const firebaseConfig = {
     apiKey: 'AIzaSyCJQEGZqv9lEexqfHz5SzQ1wNoCpWgoaps',
@@ -31,6 +33,7 @@ export const firebaseConfig = {
         AngularFireModule.initializeApp(firebaseConfig),
         StoreModule.provideStore(fromRoot.reducer),
         StoreDevtoolsModule.instrumentOnlyWithExtension(),
+        NgbModule.forRoot(),
 
         // MY
         GuestModule,

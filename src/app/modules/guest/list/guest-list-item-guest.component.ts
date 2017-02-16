@@ -20,21 +20,25 @@ import {Select2OptionData} from "ng2-select2";
         }
         
         :host >>> .select2-selection__choice {
-            padding:1px !important;
+            padding:3px !important;
             padding-bottom:3px !important;
-            margin:2px !important;
+            margin:3px !important;
         }
         
     `],
     template: `
         <div class="row" [formGroup]="form">
-            <div class="col-sm-3 pr-0" [class.active]="matchFilter">
-                <input class="form-control form-control-sm" type="text" formControlName="name" />
+            <div class="col-sm-4 pr-1">
+                <div class="row">
+                    <div class="col-sm-12 mb-1" [class.active]="matchFilter">
+                        <input class="form-control form-control-sm" type="text" formControlName="name" />
+                    </div>
+                    <div class="col-sm-12" [class.active]="matchFilter">
+                        <input class="form-control form-control-sm" type="email" formControlName="email" />
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-3 pl-1 pr-1" [class.active]="matchFilter">
-                <input class="form-control form-control-sm" type="email" formControlName="email" />
-            </div>
-            <div class="col-sm-6 pl-1 pr-1" [class.active]="matchFilter">
+            <div class="col-sm-8 pl-1 pr-1" [class.active]="matchFilter">
                 <div formArrayName="tags">
                     <select2 [data]="tagOptions" [value]="tagValues" [options]="select2Options" (valueChanged)="tagsValueChanged.emit($event)"></select2>
                 </div>
