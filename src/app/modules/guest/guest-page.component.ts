@@ -17,7 +17,7 @@ import * as filter from "../filter/filter.actions";
                 <wg-sidebar>
                     <li *ngFor="let tag of tags$ | async" class="nav-item">
                         <a class="nav-link">
-                            <wg-tag-switch [tag]="tag" [query]="query$ | async" (tagSwitch)="onTagSwitch(value)"></wg-tag-switch>
+                            <wg-tag-switch [tag]="tag" [query]="query" (tagSwitch)="tagSwitch($event, tag)"></wg-tag-switch>
                         </a>
                     </li>
                 </wg-sidebar>
@@ -39,7 +39,8 @@ export class GuestPageComponent {
     loading$: Observable<boolean>;
     filteredIds$: Observable<string[]>;
     tags$: Observable<string[]>;
-    query$: Observable<string>;
+
+    query: string = '';
 
 
     constructor(private _store: Store<fromRoot.State>) {
@@ -50,13 +51,26 @@ export class GuestPageComponent {
 
         this.tags$ = _store.select(fromRoot.getGuestListTags);
 
-        this.query$ = _store.select(fromRoot.getFilterQuery);
+        _store.select(fromRoot.getFilterQuery)
+            .subscribe(query => this.query = query);
 
         this._store.dispatch(new guest.LoadAction());
     }
 
-    onTagSwitch(value: string): void {
-        console.log('df', value);
-        this._store.dispatch(new filter.FilterAction(null));
+    tagSwitch(value:string, tag:string): void {
+        this.query = this.query.replace(` and !${tag}`,'');
+        this.query = this.query.replace(` and ${tag}`,'');
+        this.query = this.query.replace(`!${tag}`,'');
+        this.query = this.query.replace(`${tag}`,'');
+        if(value != '') {
+            if(this.query && this.query != '') {
+                this.query = `${this.query} and ${value}`;
+            }
+            else {
+                this.query = `${value}`;
+            }
+        }
+
+        this._store.dispatch(new filter.FilterAction(this.query));
     }
 }

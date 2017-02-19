@@ -24,21 +24,24 @@ import {Select2OptionData} from "ng2-select2";
             padding-bottom:3px !important;
             margin:3px !important;
         }
+        .active {
+            border-left:3px solid green;
+        }
         
     `],
     template: `
         <div class="row" [formGroup]="form">
             <div class="col-sm-4 pr-1">
-                <div class="row">
-                    <div class="col-sm-12 mb-1" [class.active]="matchFilter">
+                <div class="row" [class.active]="matchFilter">
+                    <div class="col-sm-12 mb-1">
                         <input class="form-control form-control-sm" type="text" formControlName="name" />
                     </div>
-                    <div class="col-sm-12" [class.active]="matchFilter">
+                    <div class="col-sm-12">
                         <input class="form-control form-control-sm" type="email" formControlName="email" />
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8 pl-1 pr-1" [class.active]="matchFilter">
+            <div class="col-sm-8 pl-1 pr-1">
                 <div formArrayName="tags">
                     <select2 [data]="tagOptions" [value]="tagValues" [options]="select2Options" (valueChanged)="tagsValueChanged.emit($event)"></select2>
                 </div>

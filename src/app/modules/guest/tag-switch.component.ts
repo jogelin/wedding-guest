@@ -1,10 +1,7 @@
 /**
  * Created by Joni on 26/01/2017.
  */
-import {Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges} from "@angular/core";
-import {Observable} from "rxjs";
-import {Store} from "@ngrx/store";
-import * as fromRoot from "../../app.reducers";
+import {Component, Input, Output, EventEmitter, OnChanges, SimpleChanges} from "@angular/core";
 
 
 @Component({
@@ -17,7 +14,7 @@ import * as fromRoot from "../../app.reducers";
     template: `
         <div class="row">
             <div class="col-sm-4">
-                <div [(ngModel)]="model" (ngModelChange)="onValueChange($event)" ngbRadioGroup>
+                <div [(ngModel)]="model" (ngModelChange)="tagSwitch.emit($event)" ngbRadioGroup>
                     <label class="btn btn-secondary btn-sm">
                         <input type="radio" [value]="tag"> Yes
                     </label>
@@ -33,13 +30,13 @@ import * as fromRoot from "../../app.reducers";
         </div>
     `
 })
-export class TagSwitchComponent implements OnChanges{
+export class TagSwitchComponent implements OnChanges {
 
     model: string = '';
 
     @Input() query: string;
     @Input() tag: string;
-    @Output() tagSwitch:EventEmitter<string> = new EventEmitter<string>();
+    @Output() tagSwitch = new EventEmitter();
 
     constructor() {
 
@@ -47,20 +44,15 @@ export class TagSwitchComponent implements OnChanges{
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes['query'] && JSON.stringify(changes['query'].previousValue) !== JSON.stringify(changes['query'].currentValue)) {
-            if(this.query.includes(`!${this.tag}`)) {
+            if (this.query.includes(`!${this.tag}`)) {
                 this.model = `!${this.tag}`;
             }
-            else if(this.query.includes(this.tag)) {
+            else if (this.query.includes(this.tag)) {
                 this.model = this.tag;
             }
             else {
                 this.model = '';
             }
         }
-    }
-
-    onValueChange($event) {
-        console.log($event);
-        this.tagSwitch.emit('test');
     }
 }

@@ -31,7 +31,7 @@ import {UpdateAction} from "../guest.actions";
                         [matchFilter]="matchFilter(guestGroup.get('name').value)" 
                         [form]="guestGroup"
                         [tags]="tags"
-                        (tagsValueChanged)="tagsValueChanged(tags, i)" >                           
+                        (tagsValueChanged)="tagsValueChanged($event, i)" >                           
                     </wg-guest-list-item-guest>
                 </div>
             </div>
@@ -84,13 +84,14 @@ export class GuestListItemComponent implements OnInit{
         return tags.map(tag => this._fb.control(tag));
     }
 
-    tagsValueChanged(event, i):void {
-        console.log(event);
-        /*let guest:FormGroup = (this.form.get('guests') as FormArray).controls[i] as FormGroup;
-        (guest.get('tags') as FormArray).setValue(tags);*/
+    tagsValueChanged(obj, i):void {
+        console.log(obj.value, i);
+        let guest:FormGroup = (this.form.get('guests') as FormArray).controls[i] as FormGroup;
+        (guest.get('tags') as FormArray).reset();
+        (guest.get('tags') as FormArray).setValue(this.initTags(obj.value));
     }
 
     matchFilter(guestName: string) {
-        return !this.filteredNames.includes(guestName);
+        return this.filteredNames.includes(guestName);
     }
 }
