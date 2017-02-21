@@ -1,31 +1,34 @@
 import {Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitter} from "@angular/core";
 import "rxjs/add/operator/map";
-import {FormGroup, FormArray} from "@angular/forms";
-import {Select2OptionData} from "ng2-select2";
+import {FormGroup, FormArray, FormControl} from "@angular/forms";
 
 
 @Component({
     selector: 'wg-guest-list-item-guest',
     styles: [`
-        :host >>> .select2 {
-            width:100% ! important;
-            line-height: 1 !important;
-            font-size: .875rem;
-            min-height:26px !important;
-            border-radius: .2rem;
-        }
-        
-        :host >>> .select2-selection__rendered {
-            padding:0 !important;
-        }
-        
-        :host >>> .select2-selection__choice {
-            padding:3px !important;
-            padding-bottom:3px !important;
-            margin:3px !important;
-        }
-        .active {
-            border-left:3px solid green;
+        :host >>> tag {
+            font-size: 10px !important;
+            padding: 2px !important;
+            border: 1px solid grey;
+            line-height: 10px !important;
+            height: 15px !important;
+        }   
+        :host >>> tag-input-form {
+            padding: 2px !important;
+            line-height: 10px !important;
+        }   
+        :host >>> tag-input-form .ng2-tag-input__text-input {
+            font-size: 10px !important;
+            padding: 0 !important;
+            line-height: 10px !important;
+            height: 15px !important;
+        }        
+        :host >>> delete-icon {
+            font-size: 10px !important;
+            height: 10px !important;
+        }        
+        :host >>> delete-icon svg {
+            height: 10px !important;
         }
         
     `],
@@ -42,41 +45,34 @@ import {Select2OptionData} from "ng2-select2";
                 </div>
             </div>
             <div class="col-sm-8 pl-1 pr-1">
-                <div formArrayName="tags">
-                    <select2 [data]="tagOptions" [value]="tagValues" [options]="select2Options" (valueChanged)="tagsValueChanged.emit($event)"></select2>
+                <div>
+                    <tag-input [ngModel]="form.get('tags').value"  formControlName="tags" [theme]="'minimal'">
+                        <!--<tag-input-dropdown [autocompleteItems]="tagDropdown"></tag-input-dropdown>-->
+                    </tag-input>
                 </div>
             </div>
         </div>
     `
 })
 export class GuestListItemGuestComponent implements OnInit, OnChanges {
+    items = ['Pizza', 'Pasta', 'Parmesan'];
     @Input() matchFilter: boolean;
     @Input() form: FormGroup;
     @Input() tags: string[];
     @Output() tagsValueChanged = new EventEmitter();
 
-    tagOptions: Select2OptionData[];
-    tagValues: string[];
-
-    select2Options: Select2Options = {
-        tags: true,
-        multiple: true,
-        width: '100%'
-    };
-
     ngOnInit(): void {
-        this.tagValues = (this.form.get('tags') as FormArray).controls.reduce((acc, one) => acc.concat(one.value), []);
+
+        console.log('BOUUUUUUUUUUU',(this.form.get('tags') as FormControl).value);
+        /*(this.form.get('tags') as FormControl).valueChanges
+            .map(({value}) => value);*/
+        //this.tagValues = (this.form.get('tags') as FormArray).controls.reduce((acc, one) => acc.concat(one.value), []);
+        this.tagDropdown = this.tags;
     }
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes['tags'] && JSON.stringify(changes['tags'].previousValue) !== JSON.stringify(changes['tags'].currentValue)) {
-            this.tagOptions = this.tags
-                .map(tag => {
-                    return {
-                        id: tag,
-                        text: tag
-                    } as Select2OptionData;
-                });
+           // this.tagDropdown = this.tags;
 
         }
     }

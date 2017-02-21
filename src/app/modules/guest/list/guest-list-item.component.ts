@@ -58,12 +58,12 @@ export class GuestListItemComponent implements OnInit{
             guests: this.initGuests()
         });
 
-        this.form.valueChanges
+       /* this.form.valueChanges
             .debounceTime(300)
             .distinctUntilChanged()
-            .subscribe((guestListItem:GuestListItem) => this._store.dispatch(
+            .subscribe((guestListItem:GuestListItem) => console.log('UPDATE',guestListItem)this._store.dispatch(
                 new UpdateAction({$key:this.item.$key, data:guestListItem})
-            ));
+            ));*/
     }
 
     initGuests(): FormArray {
@@ -76,7 +76,7 @@ export class GuestListItemComponent implements OnInit{
         return this._fb.group({
             name: [guest.name, Validators.required],
             email: [guest.email, Validators.required],
-            tags: this._fb.array(this.initTags(guest.tags))
+            tags: [guest.tags]
         });
     }
 

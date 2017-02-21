@@ -3,12 +3,14 @@ import {GuestListComponent} from './guest-list.component';
 import {SharedModule} from '../../shared/shared.module';
 import {GuestListItemComponent} from './guest-list-item.component';
 import {GuestListItemGuestComponent} from './guest-list-item-guest.component';
-import {Select2Module} from "ng2-select2";
+import {TagInputModule} from 'ng2-tag-input';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
     imports: [
         SharedModule,
-        Select2Module
+        FormsModule,
+        TagInputModule
     ],
     declarations: [
         GuestListComponent,
