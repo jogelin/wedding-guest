@@ -6,30 +6,7 @@ import {FormGroup, FormArray, FormControl} from "@angular/forms";
 @Component({
     selector: 'wg-guest-list-item-guest',
     styles: [`
-        :host >>> tag {
-            font-size: 10px !important;
-            padding: 2px !important;
-            border: 1px solid grey;
-            line-height: 10px !important;
-            height: 15px !important;
-        }   
-        :host >>> tag-input-form {
-            padding: 2px !important;
-            line-height: 10px !important;
-        }   
-        :host >>> tag-input-form .ng2-tag-input__text-input {
-            font-size: 10px !important;
-            padding: 0 !important;
-            line-height: 10px !important;
-            height: 15px !important;
-        }        
-        :host >>> delete-icon {
-            font-size: 10px !important;
-            height: 10px !important;
-        }        
-        :host >>> delete-icon svg {
-            height: 10px !important;
-        }
+
         
     `],
     template: `
@@ -46,16 +23,14 @@ import {FormGroup, FormArray, FormControl} from "@angular/forms";
             </div>
             <div class="col-sm-8 pl-1 pr-1">
                 <div>
-                    <tag-input [ngModel]="form.get('tags').value"  formControlName="tags" [theme]="'minimal'">
-                        <!--<tag-input-dropdown [autocompleteItems]="tagDropdown"></tag-input-dropdown>-->
-                    </tag-input>
+                    <wg-tag-input [tags]="tags" [control]="form.get('tags')">
+                    </wg-tag-input>
                 </div>
             </div>
         </div>
     `
 })
 export class GuestListItemGuestComponent implements OnInit, OnChanges {
-    items = ['Pizza', 'Pasta', 'Parmesan'];
     @Input() matchFilter: boolean;
     @Input() form: FormGroup;
     @Input() tags: string[];
@@ -63,11 +38,10 @@ export class GuestListItemGuestComponent implements OnInit, OnChanges {
 
     ngOnInit(): void {
 
-        console.log('BOUUUUUUUUUUU',(this.form.get('tags') as FormControl).value);
+       // console.log('BOUUUUUUUUUUU',(this.form.get('tags') as FormControl).value);
         /*(this.form.get('tags') as FormControl).valueChanges
             .map(({value}) => value);*/
         //this.tagValues = (this.form.get('tags') as FormArray).controls.reduce((acc, one) => acc.concat(one.value), []);
-        this.tagDropdown = this.tags;
     }
 
     ngOnChanges(changes: SimpleChanges): void {

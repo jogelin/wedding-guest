@@ -58,12 +58,12 @@ export class GuestListItemComponent implements OnInit{
             guests: this.initGuests()
         });
 
-       /* this.form.valueChanges
+        this.form.valueChanges
             .debounceTime(300)
             .distinctUntilChanged()
-            .subscribe((guestListItem:GuestListItem) => console.log('UPDATE',guestListItem)this._store.dispatch(
+            .subscribe((guestListItem:GuestListItem) => this._store.dispatch(
                 new UpdateAction({$key:this.item.$key, data:guestListItem})
-            ));*/
+            ));
     }
 
     initGuests(): FormArray {

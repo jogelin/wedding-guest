@@ -5,6 +5,7 @@ import {GuestListItemComponent} from './guest-list-item.component';
 import {GuestListItemGuestComponent} from './guest-list-item-guest.component';
 import {TagInputModule} from 'ng2-tag-input';
 import {FormsModule} from '@angular/forms';
+import {TagInputComponent} from './tag-input.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {FormsModule} from '@angular/forms';
     declarations: [
         GuestListComponent,
         GuestListItemComponent,
-        GuestListItemGuestComponent
+        GuestListItemGuestComponent,
+        TagInputComponent
     ],
     exports: [
         GuestListComponent
