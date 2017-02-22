@@ -11,7 +11,7 @@ import * as filter from "../filter/filter.actions";
 import {FilterActionTypes} from "../filter/filter.actions";
 import {GuestListItem} from "./guest.model";
 import {GuestService} from "./guest.service";
-
+import "rxjs/add/operator/map";
 
 @Injectable()
 export class GuestEffects {

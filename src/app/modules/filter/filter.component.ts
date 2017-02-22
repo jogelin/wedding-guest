@@ -51,6 +51,7 @@ export class FilterComponent implements OnInit {
 
     filterGuest(query: string) {
         if (this.form.valid) {
+            console.log("FILTER from query form");
             this._store.dispatch(new filter.FilterAction(query));
         }
     }

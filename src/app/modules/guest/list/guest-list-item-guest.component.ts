@@ -1,28 +1,29 @@
-import {Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitter} from "@angular/core";
-import "rxjs/add/operator/map";
-import {FormGroup, FormArray, FormControl} from "@angular/forms";
+import {Component, Input, OnInit, OnChanges, SimpleChanges} from '@angular/core';
+import 'rxjs/add/operator/map';
+import {FormGroup} from '@angular/forms';
 
 
 @Component({
     selector: 'wg-guest-list-item-guest',
     styles: [`
-
-        
+        :host .match >>> tag {
+            border: 1px solid green;
+        }
     `],
     template: `
         <div class="row" [formGroup]="form">
             <div class="col-sm-4 pr-1">
-                <div class="row" [class.active]="matchFilter">
+                <div class="row">
                     <div class="col-sm-12 mb-1">
                         <input class="form-control form-control-sm" type="text" formControlName="name" />
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 mt-1">
                         <input class="form-control form-control-sm" type="email" formControlName="email" />
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8 pl-1 pr-1">
-                <div>
+            <div class="col-sm-8 pl-0 pr-1">
+                <div [class.match]="matchQuery">
                     <wg-tag-input [tags]="tags" [control]="form.get('tags')">
                     </wg-tag-input>
                 </div>
@@ -30,30 +31,21 @@ import {FormGroup, FormArray, FormControl} from "@angular/forms";
         </div>
     `
 })
-export class GuestListItemGuestComponent implements OnInit, OnChanges {
-    @Input() matchFilter: boolean;
+export class GuestListItemGuestComponent implements OnChanges {
+    @Input() query: string;
     @Input() form: FormGroup;
     @Input() tags: string[];
-    @Output() tagsValueChanged = new EventEmitter();
 
-    ngOnInit(): void {
-
-       // console.log('BOUUUUUUUUUUU',(this.form.get('tags') as FormControl).value);
-        /*(this.form.get('tags') as FormControl).valueChanges
-            .map(({value}) => value);*/
-        //this.tagValues = (this.form.get('tags') as FormArray).controls.reduce((acc, one) => acc.concat(one.value), []);
-    }
+    matchQuery: boolean = false;
 
     ngOnChanges(changes: SimpleChanges): void {
-        if (changes['tags'] && JSON.stringify(changes['tags'].previousValue) !== JSON.stringify(changes['tags'].currentValue)) {
-           // this.tagDropdown = this.tags;
-
+        if (changes['query'] && JSON.stringify(changes['query'].previousValue) !== JSON.stringify(changes['query'].currentValue)) {
+            this.matchQuery = this.inQuery();
         }
     }
 
-    //
-    // valueChanged(tags): void {
-    //     (this.form.get('tags') as FormArray).setValue(tags.value);
-    // }
-
+    inQuery(): boolean {
+        return this.form.get('tags').value
+                .filter(val => this.query.includes(val)).length > 0
+    }
 }

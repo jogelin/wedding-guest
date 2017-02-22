@@ -1,7 +1,7 @@
 /**
  * Created by Joni on 26/01/2017.
  */
-import {Component, Input, Output, EventEmitter, OnChanges, SimpleChanges} from "@angular/core";
+import {Component, Input, OnChanges, SimpleChanges, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 
 
@@ -47,8 +47,6 @@ export class TagInputComponent implements OnChanges {
     @Input() tags: string[];
     value: string[];
 
-
-
     constructor() {
 
     }
@@ -65,8 +63,8 @@ export class TagInputComponent implements OnChanges {
 
     onRemove(event) {
         this.control.setValue(
-            this.control.value.filter(function(i) {
-                return i != event.value
+            this.control.value.filter((i) => {
+                return i != event
             })
         );
     }

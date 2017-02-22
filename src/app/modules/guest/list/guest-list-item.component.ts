@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {GuestListItem, Guest} from '../guest.model';
-import {FormGroup, Validators, FormBuilder, FormArray, FormControl} from '@angular/forms';
-import {Store} from "@ngrx/store";
-import * as fromRoot from "../../../app.reducers";
-import {UpdateAction} from "../guest.actions";
+import {FormGroup, Validators, FormBuilder, FormArray} from '@angular/forms';
+import {Store} from '@ngrx/store';
+import * as fromRoot from '../../../app.reducers';
+import {UpdateAction} from '../guest.actions';
 
 
 @Component({
@@ -13,38 +13,36 @@ import {UpdateAction} from "../guest.actions";
 
         form > div > div:not(:last-child) {
             padding-bottom: 5px;
+            margin-bottom: 5px;
+            border-bottom:1px solid #ccc;
         }
 
         textarea.form-control {
             height: 100%;
         }
 
-        .disable {
-            background-color:grey;
-        }
     `],
     template: `
         <form class="row d-flex align-items-stretch" *ngIf="item" [formGroup]="form">
-            <div class="col-sm-10">            
-                <div *ngFor="let guestGroup of form.controls.guests.controls; let i=index;">
+            <div class="col-sm-9">            
+                <div *ngFor="let guestGroup of form.controls.guests.controls;">
                     <wg-guest-list-item-guest 
-                        [matchFilter]="matchFilter(guestGroup.get('name').value)" 
+                        [query]="query" 
                         [form]="guestGroup"
-                        [tags]="tags"
-                        (tagsValueChanged)="tagsValueChanged($event, i)" >                           
+                        [tags]="tags">                           
                     </wg-guest-list-item-guest>
                 </div>
             </div>
-            <div class="col-sm-2 pl-1">
-                <textarea class="form-control">{{form.controls.address.value}}</textarea>
+            <div class="col-sm-3 pl-1">
+                <textarea formControlName="address" class="form-control">{{form.controls.address.value}}</textarea>
 
             </div>
         </form>
     `
 })
-export class GuestListItemComponent implements OnInit{
+export class GuestListItemComponent implements OnInit {
     @Input() item: GuestListItem;
-    @Input() filteredNames: string[] = [];
+    @Input() query: string;
     @Input() tags: string[];
 
     form: FormGroup;
@@ -61,8 +59,8 @@ export class GuestListItemComponent implements OnInit{
         this.form.valueChanges
             .debounceTime(300)
             .distinctUntilChanged()
-            .subscribe((guestListItem:GuestListItem) => this._store.dispatch(
-                new UpdateAction({$key:this.item.$key, data:guestListItem})
+            .subscribe((guestListItem: GuestListItem) => this._store.dispatch(
+                new UpdateAction({$key: this.item.$key, data: guestListItem})
             ));
     }
 
@@ -78,20 +76,5 @@ export class GuestListItemComponent implements OnInit{
             email: [guest.email, Validators.required],
             tags: [guest.tags]
         });
-    }
-
-    initTags(tags: string[]): FormControl[] {
-        return tags.map(tag => this._fb.control(tag));
-    }
-
-    tagsValueChanged(obj, i):void {
-        console.log(obj.value, i);
-        let guest:FormGroup = (this.form.get('guests') as FormArray).controls[i] as FormGroup;
-        (guest.get('tags') as FormArray).reset();
-        (guest.get('tags') as FormArray).setValue(this.initTags(obj.value));
-    }
-
-    matchFilter(guestName: string) {
-        return this.filteredNames.includes(guestName);
     }
 }
