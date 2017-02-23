@@ -18,7 +18,7 @@ import {FormGroup} from '@angular/forms';
                         <input class="form-control form-control-sm" type="text" formControlName="name" />
                     </div>
                     <div class="col-sm-12 mt-1">
-                        <input class="form-control form-control-sm" type="email" formControlName="email" />
+                        <input [class.bg-warning]="form.controls.email.value == ''" class="form-control form-control-sm" type="email" formControlName="email" />
                     </div>
                 </div>
             </div>

@@ -41,9 +41,9 @@ export class GuestEffects {
     updateGuestListItem$: Observable <Action> = this._actions$
         .ofType(GuestActionTypes.UPDATE)
         .map((action: guest.UpdateAction) => action.payload)
-        .switchMap(({$key, data}) =>
-            this._gs.updateGuestListItem($key, data)
-                .map(() => new guest.UpdateSuccessAction(data))
+        .switchMap((guestListItem:GuestListItem) =>
+            this._gs.updateGuestListItem(guestListItem)
+                .map(() => new guest.UpdateSuccessAction(guestListItem))
                 .catch(err => Observable.of(new guest.UpdateFailedAction(err)))
         );
 

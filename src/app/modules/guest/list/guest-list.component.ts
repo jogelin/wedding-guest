@@ -11,14 +11,14 @@ import {GuestListItem, Guest} from '../guest.model';
         }
     `],
     template: `
-        <i *ngIf="loading" class="fa fa-spinner" aria-hidden="true"></i>
+        <i *ngIf="loading" class="fa fa-spinner fa-spin fa-3x fa-fw" aria-hidden="true"></i>
         <div class="list-group">
-            <div class="list-group-item p-1">
+<!--            <div class="list-group-item p-1">
                 <wg-guest-list-item class="w-100" 
                     [item]="newItem" 
                     [tags]="tags">
                 </wg-guest-list-item>
-            </div>
+            </div>-->
             <div *ngFor="let item of guestList" class="list-group-item p-1">
                 <wg-guest-list-item class="w-100" 
                     [item]="item" 

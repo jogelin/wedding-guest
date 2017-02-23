@@ -56,10 +56,9 @@ export class GuestPageComponent {
     }
 
     tagSwitch(value: string, tag: string): void {
-        this.query = this.query.replace(` and !${tag}`, '');
-        this.query = this.query.replace(` and ${tag}`, '');
-        this.query = this.query.replace(`!${tag}`, '');
-        this.query = this.query.replace(`${tag}`, '');
+        let qArr = this.query.split(' and ');
+        qArr = qArr.filter(val => val != value && val != );
+        this.query = qArr.join(' and ');
         if (value != '') {
             if (this.query && this.query != '') {
                 this.query = `${this.query} and ${value}`;

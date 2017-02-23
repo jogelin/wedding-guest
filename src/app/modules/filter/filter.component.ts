@@ -16,7 +16,7 @@ import * as fromRoot from "../../app.reducers";
     `],
     template: `
         <form class="mt-2 mt-md-0" [formGroup]="form" novalidate>
-            <input type="text" class="form-control mr-sm-2" formControlName="query" placeholder="Filter the list">
+            <input type="text" class="form-control mr-sm-2" size="60" formControlName="query" placeholder="Filter the list">
         </form>
     `
 })

@@ -34,8 +34,7 @@ import {UpdateAction} from '../guest.actions';
                 </div>
             </div>
             <div class="col-sm-3 pl-1">
-                <textarea formControlName="address" class="form-control">{{form.controls.address.value}}</textarea>
-
+                <textarea [class.bg-warning]="form.controls.address.value == ''" formControlName="address" class="form-control">{{form.controls.address.value}}</textarea>
             </div>
         </form>
     `
@@ -59,9 +58,12 @@ export class GuestListItemComponent implements OnInit {
         this.form.valueChanges
             .debounceTime(300)
             .distinctUntilChanged()
-            .subscribe((guestListItem: GuestListItem) => this._store.dispatch(
-                new UpdateAction({$key: this.item.$key, data: guestListItem})
-            ));
+            .subscribe((guestListItem: GuestListItem) => {
+                guestListItem.$key = this.item.$key;
+                this._store.dispatch(
+                    new UpdateAction(guestListItem)
+                )
+            });
     }
 
     initGuests(): FormArray {

@@ -37,7 +37,7 @@ export class LoadFailAction implements Action {
 export class UpdateAction implements Action {
     type = ActionTypes.UPDATE;
 
-    constructor(public payload: any) {
+    constructor(public payload: GuestListItem) {
     }
 }
 export class UpdateSuccessAction implements Action {

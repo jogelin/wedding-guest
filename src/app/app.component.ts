@@ -12,7 +12,12 @@ import {Router, ActivatedRoute} from '@angular/router';
             </button>
             <a class="navbar-brand" href="#">Wedding Guests</a> 
             <ul class="navbar-nav mr-auto">
-            
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="./guests">Guests</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="./report">Report</a>
+                </li>
             </ul>
             <wg-filter></wg-filter>
         </nav>

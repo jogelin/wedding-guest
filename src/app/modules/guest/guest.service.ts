@@ -25,8 +25,10 @@ export class GuestService {
         return Observable.from(this.guestListFirebase$).take(1);
     }
 
-    updateGuestListItem($key: string, data: GuestListItem): Observable<void> {
-        return Observable.from(this.guestListFirebase$.update($key, data));
+    updateGuestListItem(guestListItem:GuestListItem): Observable<void> {
+        const newGLI:GuestListItem = Object.assign({},guestListItem);
+        delete newGLI.$key;
+        return Observable.from(this.guestListFirebase$.update(`${guestListItem.$key}`, newGLI));
     }
 
     get guestListFirebase$(): FirebaseListObservable<GuestListItem[]> {

@@ -12,6 +12,7 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {FilterModule} from "./modules/filter/filter.module";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
+import {ReportModule} from "./modules/report/report.module";
 
 export const firebaseConfig = {
     apiKey: 'AIzaSyCJQEGZqv9lEexqfHz5SzQ1wNoCpWgoaps',
@@ -37,6 +38,7 @@ export const firebaseConfig = {
 
         // MY
         GuestModule,
+        ReportModule,
         FilterModule
     ],
     providers: [],
