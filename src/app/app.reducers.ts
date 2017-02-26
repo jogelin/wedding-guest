@@ -31,6 +31,7 @@ import {storeFreeze} from 'ngrx-store-freeze';
  */
 import * as fromGuest from './modules/guest/guest.reducer';
 import * as fromFilter from './modules/filter/filter.reducer';
+import * as fromReport from './modules/report/report.reducer';
 import {createSelector} from 'reselect';
 
 /**
@@ -40,6 +41,7 @@ import {createSelector} from 'reselect';
 export interface State {
     guest: fromGuest.State;
     filter: fromFilter.State;
+    report: fromReport.State;
 }
 
 
@@ -52,7 +54,8 @@ export interface State {
  */
 const reducers = {
     guest: fromGuest.reducer,
-    filter: fromFilter.reducer
+    filter: fromFilter.reducer,
+    report: fromReport.reducer
 };
 
 const developmentReducer: ActionReducer<State> = compose(storeFreeze, combineReducers)(reducers);
@@ -88,6 +91,12 @@ export const getFilterState = (state: State) => state.filter;
 export const getFilterFilteredIds = createSelector(getFilterState, fromFilter.getFilteredIds);
 export const getFilterQuery = createSelector(getFilterState, fromFilter.getQuery);
 export const getFilterLoading = createSelector(getFilterState, fromFilter.getFiltering);
+
+//REPORT
+export const getReportState = (state: State) => state.report;
+
+export const getReport = createSelector(getReportState, fromReport.getReport);
+
 
 //COMMON
 export const getFilteredGuestList = createSelector(getGuestList, getFilterFilteredIds, (guestList, filteredIds) =>

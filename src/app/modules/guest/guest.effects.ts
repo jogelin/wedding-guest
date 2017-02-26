@@ -21,7 +21,7 @@ export class GuestEffects {
     @Effect()
     loadGuests$: Observable <Action> = this._actions$
         .ofType(GuestActionTypes.LOAD)
-        .startWith(new guest.LoadAction())
+        //.startWith(new guest.LoadAction())
         .switchMap(() =>
             this._gs.loadGuests()
                 .map((guests: GuestListItem[]) => new guest.LoadSuccessAction(guests))

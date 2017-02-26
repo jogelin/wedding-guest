@@ -45,7 +45,7 @@ import {FormControl} from '@angular/forms';
 export class TagInputComponent implements OnChanges {
     @Input() control: FormControl;
     @Input() tags: string[];
-    value: string[];
+    value: string[] = [];
 
     constructor() {
 

@@ -10,7 +10,7 @@ import {StoreModule} from "@ngrx/store";
 import * as fromRoot from "./app.reducers";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {FilterModule} from "./modules/filter/filter.module";
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModule, NgbButtonsModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
 import {ReportModule} from "./modules/report/report.module";
 
@@ -34,7 +34,7 @@ export const firebaseConfig = {
         AngularFireModule.initializeApp(firebaseConfig),
         StoreModule.provideStore(fromRoot.reducer),
         StoreDevtoolsModule.instrumentOnlyWithExtension(),
-        NgbModule.forRoot(),
+        NgbButtonsModule .forRoot(),
 
         // MY
         GuestModule,
