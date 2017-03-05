@@ -25,4 +25,15 @@ export class ReportEffects {
                 .map((rr: Report) => new report.LoadSuccessAction(rr))
                 .catch(error => Observable.of(new report.LoadFailAction(error)))
         );
+
+    @Effect()
+    refreshReportCounts$: Observable <Action> = this._actions$
+        .ofType(ReportActionTypes.LOAD_SUCCESS)
+        //.startWith(new report.LoadAction())
+        .map(action => action.payload)
+        .switchMap(report =>
+            this._reportService.refreshReportCounts(report)
+                .map((rr: Report) => new report.RefreshSuccessAction(rr))
+                .catch(error => Observable.of(new report.RefreshFailAction(error)))
+        );
 }

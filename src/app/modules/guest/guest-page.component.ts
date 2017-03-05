@@ -12,24 +12,26 @@ import * as filter from '../filter/filter.actions';
     styles: [`
     `],
     template: `
-        <div class="row">    
-            <nav class="col-sm-4 col-md-3 hidden-xs-down bg-faded sidebar">
-                <wg-sidebar>
-                    <li *ngFor="let tag of tags$ | async" class="nav-item">
-                        <a class="nav-link">
-                            <wg-tag-switch [tag]="tag" [query]="query" (tagSwitch)="tagSwitch($event, tag)"></wg-tag-switch>
-                        </a>
-                    </li>
-                </wg-sidebar>
-            </nav>  
-            <main class="col-sm-8 offset-sm-4 col-md-9 offset-md-3 pt-3">
-                <wg-guest-list 
-                    [guestList]="guestList$ | async" 
-                    [query]="query"
-                    [loading]="loading$ | async"
-                    [tags]="tags$ | async">       
-                </wg-guest-list>      
-            </main>
+        <div class="container-fluid">
+            <div class="row">    
+                <nav class="col-sm-4 col-md-3 hidden-xs-down bg-faded sidebar">
+                    <wg-sidebar>
+                        <li *ngFor="let tag of tags$ | async" class="nav-item">
+                            <a class="nav-link">
+                                <wg-tag-switch [tag]="tag" [query]="query" (tagSwitch)="tagSwitch($event, tag)"></wg-tag-switch>
+                            </a>
+                        </li>
+                    </wg-sidebar>
+                </nav>  
+                <main class="col-sm-8 offset-sm-4 col-md-9 offset-md-3 pt-3">
+                    <wg-guest-list 
+                        [guestList]="guestList$ | async" 
+                        [query]="query"
+                        [loading]="loading$ | async"
+                        [tags]="tags$ | async">       
+                    </wg-guest-list>      
+                </main>
+            </div>   
         </div>
     `
 })

@@ -9,6 +9,7 @@ import {HttpModule} from "@angular/http";
 import {SidebarModule} from "./sidebar/sidebar.module";
 import {TagSwitchComponent} from "./tag-switch.component";
 import {FormsModule} from "@angular/forms";
+import {NgbButtonsModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
     imports: [

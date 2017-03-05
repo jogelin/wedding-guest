@@ -24,6 +24,17 @@ export function reducer(state = initialState, action: ReportActions): State {
             return state;
         }
 
+        case ReportActionTypes.REFRESH_COUNT_SUCCESS: {
+            return {
+                report:action.payload
+            };
+        }
+
+        case ReportActionTypes.REFRESH_COUNT_FAIL: {
+            console.error(action.type);
+            return state;
+        }
+
         default: {
             return state;
         }
@@ -31,3 +42,5 @@ export function reducer(state = initialState, action: ReportActions): State {
 }
 
 export const getReport = (state: State) => state.report;
+export const getReportHeaders = (state: State) => state.report.headers;
+export const getReportRows = (state: State) => state.report.rows;

@@ -21,7 +21,7 @@ import {Router, ActivatedRoute} from '@angular/router';
             </ul>
             <wg-filter></wg-filter>
         </nav>
-        <div class="container-fluid">
+        <div>
             <router-outlet></router-outlet>
         </div>
     `

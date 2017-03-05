@@ -96,6 +96,8 @@ export const getFilterLoading = createSelector(getFilterState, fromFilter.getFil
 export const getReportState = (state: State) => state.report;
 
 export const getReport = createSelector(getReportState, fromReport.getReport);
+export const getReportHeaders = createSelector(getReportState, fromReport.getReportHeaders);
+export const getReportRows = createSelector(getReportState, fromReport.getReportRows);
 
 
 //COMMON

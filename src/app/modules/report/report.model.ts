@@ -1,10 +1,11 @@
+import {Observable} from "rxjs";
 export interface ReportQuery {
     name: string;
     query: string;
 }
 
 export interface ReportCount extends ReportQuery {
-    count: number;
+    count$: Observable<number>;
     icon: string;
 }
 
@@ -22,8 +23,8 @@ export interface Report {
 }
 
 export abstract class ReportQueryBuilder<T extends ReportQueryBuilder<T>> {
-    private _name: string;
-    private _query: string;
+    protected _name: string;
+    protected _query: string;
 
     build(): ReportQuery {
         return {
@@ -32,25 +33,19 @@ export abstract class ReportQueryBuilder<T extends ReportQueryBuilder<T>> {
         } as ReportQuery;
     }
 
-    name(name: string): T {
-        this._name = name;
-        return <T>this;
-    }
+    abstract name(name: string): T;
 
-    query(query: string): T {
-        this._query = query;
-        return <T>this;
-    }
+    abstract query(query: string): T;
 }
 
 export class ReportCountBuilder extends ReportQueryBuilder<ReportCountBuilder> {
-    private _count: number = 0;
+    private _count$: Observable<number>;
     private _icon: string;
 
     build(): ReportCount {
         return Object.assign(super.build(),
             {
-                count: this._count,
+                count$: this._count$,
                 icon: this._icon
             }
         ) as ReportCount;
@@ -60,8 +55,18 @@ export class ReportCountBuilder extends ReportQueryBuilder<ReportCountBuilder> {
         this._icon = icon;
         return this;
     }
+
+    name(name: string): ReportCountBuilder {
+        this._name = name;
+        return this;
+    }
+
+    query(query: string): ReportCountBuilder {
+        this._query = query;
+        return this;
+    }
 }
-export class ReportColBuilder extends ReportQueryBuilder {
+export class ReportColBuilder extends ReportQueryBuilder<ReportColBuilder> {
     private _counts: ReportCount[];
 
     build(): ReportCol {
@@ -72,13 +77,23 @@ export class ReportColBuilder extends ReportQueryBuilder {
         ) as ReportCol;
     }
 
-    count(counts: ReportCount[]): ReportColBuilder {
+    counts(counts: ReportCount[]): ReportColBuilder {
         this._counts = counts;
+        return this;
+    }
+
+    name(name: string): ReportColBuilder {
+        this._name = name;
+        return this;
+    }
+
+    query(query: string): ReportColBuilder {
+        this._query = query;
         return this;
     }
 }
 
-export class ReportRowBuilder extends ReportQueryBuilder {
+export class ReportRowBuilder extends ReportQueryBuilder<ReportRowBuilder> {
     private _cols: ReportCol[] = [];
 
     build(): ReportRow {
@@ -91,6 +106,16 @@ export class ReportRowBuilder extends ReportQueryBuilder {
 
     cols(cols: ReportCol[]): ReportRowBuilder {
         this._cols = cols;
+        return this;
+    }
+
+    name(name: string): ReportRowBuilder {
+        this._name = name;
+        return this;
+    }
+
+    query(query: string): ReportRowBuilder {
+        this._query = query;
         return this;
     }
 }

@@ -34,7 +34,7 @@ export const firebaseConfig = {
         AngularFireModule.initializeApp(firebaseConfig),
         StoreModule.provideStore(fromRoot.reducer),
         StoreDevtoolsModule.instrumentOnlyWithExtension(),
-        NgbButtonsModule .forRoot(),
+        NgbButtonsModule.forRoot(),
 
         // MY
         GuestModule,
