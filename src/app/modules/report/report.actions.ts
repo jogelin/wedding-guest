@@ -34,7 +34,7 @@ export class LoadFailAction implements Action {
     }
 }
 
-export class RefreshAction implements Action {
+export class RefreshCountAction implements Action {
     type = ActionTypes.REFRESH_COUNT;
     payload;
 
@@ -42,14 +42,14 @@ export class RefreshAction implements Action {
     }
 }
 
-export class RefreshSuccessAction implements Action {
+export class RefreshCountSuccessAction implements Action {
     type = ActionTypes.REFRESH_COUNT_SUCCESS;
 
     constructor(public payload: Report) {
     }
 }
 
-export class RefreshFailAction implements Action {
+export class RefreshCountFailAction implements Action {
     type = ActionTypes.REFRESH_COUNT_FAIL;
 
     constructor(public payload: any) {
@@ -60,6 +60,6 @@ export type ReportActions
     = LoadAction
     | LoadSuccessAction
     | LoadFailAction
-    | RefreshAction
-    | RefreshSuccessAction
-    | RefreshFailAction;
+    | RefreshCountAction
+    | RefreshCountSuccessAction
+    | RefreshCountFailAction;

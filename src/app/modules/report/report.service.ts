@@ -34,8 +34,8 @@ export class ReportService {
                     const colQuery = rowQuery !== '' ? rowQuery.concat(' and ', col.query) : col.query;
                     col.counts.forEach(count => {
                         const countQuery = colQuery !== '' ? colQuery.concat(' and ', count.query) : count.query;
-                        count.count$ = this.guestService.filterGuestList(countQuery)
-                            .map(filteredNames => filteredNames.length);
+                        // count.count$ = this.guestService.filterGuestList(countQuery)
+                        //     .map(filteredNames => filteredNames.length);
                     });
                 });
             });

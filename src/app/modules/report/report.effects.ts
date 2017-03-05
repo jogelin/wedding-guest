@@ -33,7 +33,7 @@ export class ReportEffects {
         .map(action => action.payload)
         .switchMap(report =>
             this._reportService.refreshReportCounts(report)
-                .map((rr: Report) => new report.RefreshSuccessAction(rr))
-                .catch(error => Observable.of(new report.RefreshFailAction(error)))
+                .map((rr: Report) => new report.RefreshCountSuccessAction(rr))
+                .catch(error => Observable.of(new report.RefreshCountFailAction(error)))
         );
 }
