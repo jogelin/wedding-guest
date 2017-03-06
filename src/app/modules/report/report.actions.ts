@@ -1,14 +1,14 @@
 import {Action} from "@ngrx/store";
 import {type} from "../shared/util";
-import {Report, ReportCount} from "./report.model";
+import {Report, ReportCount, ReportCountRefresh} from "./report.model";
 
 const ActionTypes = {
     LOAD: type('[Report] Load'),
     LOAD_SUCCESS: type('[Report] Load success'),
     LOAD_FAIL: type('[Report] Load Fail'),
-    REFRESH_COUNT: type('[Report] Refresh count$'),
-    REFRESH_COUNT_SUCCESS: type('[Report] Refresh count$ success'),
-    REFRESH_COUNT_FAIL: type('[Report] Refresh count$ Fail')
+    REFRESH_COUNT: type('[Report] Refresh count'),
+    REFRESH_COUNT_SUCCESS: type('[Report] Refresh count success'),
+    REFRESH_COUNT_FAIL: type('[Report] Refresh count Fail')
 };
 export {ActionTypes as ReportActionTypes};
 
@@ -45,7 +45,7 @@ export class RefreshCountAction implements Action {
 export class RefreshCountSuccessAction implements Action {
     type = ActionTypes.REFRESH_COUNT_SUCCESS;
 
-    constructor(public payload: Report) {
+    constructor(public payload: ReportCountRefresh[]) {
     }
 }
 

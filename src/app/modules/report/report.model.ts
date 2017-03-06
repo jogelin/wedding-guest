@@ -1,11 +1,16 @@
-import {Observable} from "rxjs";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 export interface ReportQuery {
     name: string;
     query: string;
 }
 
+export interface ReportCountRefresh {
+    count: number;
+    path: string[];
+}
+
 export interface ReportCount extends ReportQuery {
-    count$: Observable<number>;
+    count: number;
     icon: string;
 }
 
@@ -39,13 +44,13 @@ export abstract class ReportQueryBuilder<T extends ReportQueryBuilder<T>> {
 }
 
 export class ReportCountBuilder extends ReportQueryBuilder<ReportCountBuilder> {
-    private _count$: Observable<number>;
+    private _count: number = 0;
     private _icon: string;
 
     build(): ReportCount {
         return Object.assign(super.build(),
             {
-                count$: this._count$,
+                count: this._count,
                 icon: this._icon
             }
         ) as ReportCount;

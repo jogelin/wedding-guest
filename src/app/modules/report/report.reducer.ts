@@ -1,5 +1,5 @@
 import {ReportActions, ReportActionTypes} from "./report.actions";
-import {Report} from "./report.model";
+import {Report, ReportCountRefresh} from "./report.model";
 
 export interface State {
     report: Report;
@@ -15,7 +15,7 @@ export function reducer(state = initialState, action: ReportActions): State {
 
         case ReportActionTypes.LOAD_SUCCESS: {
             return {
-                report:action.payload
+                report: action.payload
             };
         }
 
@@ -25,8 +25,24 @@ export function reducer(state = initialState, action: ReportActions): State {
         }
 
         case ReportActionTypes.REFRESH_COUNT_SUCCESS: {
+            const newReport = JSON.parse(JSON.stringify(state.report));
+            const refreshCounts: ReportCountRefresh[] = action.payload;
+            newReport.rows.forEach(row =>
+                row.cols.forEach(col =>
+                    col.counts.forEach(count => {
+                        count.count = refreshCounts
+                            .filter(refreshCount =>
+                                refreshCount.path[0] === row.name &&
+                                refreshCount.path[1] === col.name &&
+                                refreshCount.path[2] === count.name
+                            )
+                            .map(refreshCount => refreshCount.count)
+                    })
+                )
+            );
+
             return {
-                report:action.payload
+                report: newReport
             };
         }
 

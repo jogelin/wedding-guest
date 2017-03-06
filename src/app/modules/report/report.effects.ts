@@ -19,7 +19,6 @@ export class ReportEffects {
     @Effect()
     loadReport$: Observable <Action> = this._actions$
         .ofType(ReportActionTypes.LOAD)
-        //.startWith(new report.LoadAction())
         .switchMap(() =>
             this._reportService.loadReport()
                 .map((rr: Report) => new report.LoadSuccessAction(rr))
@@ -29,11 +28,10 @@ export class ReportEffects {
     @Effect()
     refreshReportCounts$: Observable <Action> = this._actions$
         .ofType(ReportActionTypes.LOAD_SUCCESS)
-        //.startWith(new report.LoadAction())
         .map(action => action.payload)
-        .switchMap(report =>
-            this._reportService.refreshReportCounts(report)
-                .map((rr: Report) => new report.RefreshCountSuccessAction(rr))
+        .switchMap(rep =>
+            this._reportService.refreshReportCounts(rep)
+                .map(reportCountRefresh => new report.RefreshCountSuccessAction(reportCountRefresh))
                 .catch(error => Observable.of(new report.RefreshCountFailAction(error)))
         );
 }

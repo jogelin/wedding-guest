@@ -14,7 +14,8 @@ import {
     ReportBuilder,
     ReportRowBuilder,
     ReportColBuilder,
-    ReportCountBuilder
+    ReportCountBuilder,
+    ReportCountRefresh
 } from "./report.model";
 import {GuestService} from "../guest/guest.service";
 
@@ -25,21 +26,28 @@ export class ReportService {
     constructor(private guestService: GuestService) {
     }
 
-    refreshReportCounts(report: Report): Observable<Report> {
+    refreshReportCounts(report: Report): Observable<ReportCountRefresh[]> {
 
-        report.rows
-            .forEach(row => {
-                const rowQuery = row.query;
-                row.cols.forEach(col => {
-                    const colQuery = rowQuery !== '' ? rowQuery.concat(' and ', col.query) : col.query;
-                    col.counts.forEach(count => {
-                        const countQuery = colQuery !== '' ? colQuery.concat(' and ', count.query) : count.query;
-                        // count.count$ = this.guestService.filterGuestList(countQuery)
-                        //     .map(filteredNames => filteredNames.length);
-                    });
+        let obs: Observable<ReportCountRefresh>[] = [];
+        report.rows.forEach(row => {
+            const rowQuery = row.query;
+            row.cols.forEach(col => {
+                const colQuery = rowQuery !== '' ? rowQuery.concat(' and ', col.query) : col.query;
+                col.counts.forEach(count => {
+                    const countQuery = colQuery !== '' ? colQuery.concat(' and ', count.query) : count.query;
+                    obs = obs.concat(this.guestService.filterGuestList(countQuery)
+                        .take(1)
+                        .map(filteredNames => ({
+                            path: [row.name, col.name, count.name],
+                            count: filteredNames.length
+                        })));
                 });
             });
-        return Observable.of(report);
+        });
+        return Observable
+            .merge(obs)
+            .flatMap(ob => ob)
+            .toArray();
     }
 
     loadReport(): Observable<Report> {

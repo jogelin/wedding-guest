@@ -34,28 +34,28 @@ import {Report, ReportRow} from "./report.model";
                         <th scope="row" title="{{row.query}}">{{row.name}}</th>
                         <td *ngFor="let col of row.cols">
                             <ul>
-                                <div class="d-flex justify-content-center">
+                                <div class="d-flex justify-content-around">
                                     <div class="p-1">
                                         <i class="fa" aria-hidden="true" [ngClass]="col.counts[0].icon"></i>
-                                        &nbsp;<span>{{col.counts[0].count$}}</span>
+                                        &nbsp;<span>{{col.counts[0].count}}</span>
                                     </div>
                                     <div class="p-1">
                                         <i class="fa" aria-hidden="true" [ngClass]="col.counts[1].icon"></i>
-                                        &nbsp;<span>{{col.counts[1].count$}}</span>
+                                        &nbsp;<span>{{col.counts[1].count}}</span>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-center">
-                                    <div class="p-1">
+                                <div class="d-flex justify-content-around">
+                                    <div class="p-1 text-success">
                                         <i class="fa" aria-hidden="true" [ngClass]="col.counts[2].icon"></i>
-                                        &nbsp;<span>{{col.counts[2].count$}}</span>
+                                        &nbsp;<span>{{col.counts[2].count}}</span>
                                     </div>
-                                    <div class="p-1">
+                                    <div class="p-1 text-danger">
                                         <i class="fa" aria-hidden="true" [ngClass]="col.counts[3].icon"></i>
-                                        &nbsp;<span>{{col.counts[3].count$}}</span>
+                                        &nbsp;<span>{{col.counts[3].count}}</span>
                                     </div>
-                                    <div class="p-1">
+                                    <div class="p-1" [class.text-warning]="(col.counts[4].count) > 0">
                                         <i class="fa" aria-hidden="true" [ngClass]="col.counts[4].icon"></i>
-                                        &nbsp;<span [class.text-warning]="(col.counts[4].count$ | async) > 0">{{col.counts[4].count$ | async}}</span>
+                                        &nbsp;<span>{{col.counts[4].count}}</span>
                                     </div>
                                 </div>
                             </ul>
