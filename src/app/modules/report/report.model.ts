@@ -7,6 +7,7 @@ export interface ReportQuery {
 export interface ReportCountRefresh {
     count: number;
     path: string[];
+    query:string;
 }
 
 export interface ReportCount extends ReportQuery {

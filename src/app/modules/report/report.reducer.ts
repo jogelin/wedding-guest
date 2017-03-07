@@ -30,13 +30,14 @@ export function reducer(state = initialState, action: ReportActions): State {
             newReport.rows.forEach(row =>
                 row.cols.forEach(col =>
                     col.counts.forEach(count => {
+                        console.log(refreshCounts);
                         count.count = refreshCounts
                             .filter(refreshCount =>
                                 refreshCount.path[0] === row.name &&
                                 refreshCount.path[1] === col.name &&
                                 refreshCount.path[2] === count.name
                             )
-                            .map(refreshCount => refreshCount.count)
+                            .map(refreshCount => refreshCount.count);
                     })
                 )
             );

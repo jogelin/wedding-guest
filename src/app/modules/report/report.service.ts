@@ -30,14 +30,13 @@ export class ReportService {
 
         let obs: Observable<ReportCountRefresh>[] = [];
         report.rows.forEach(row => {
-            const rowQuery = row.query;
             row.cols.forEach(col => {
-                const colQuery = rowQuery !== '' ? rowQuery.concat(' and ', col.query) : col.query;
                 col.counts.forEach(count => {
-                    const countQuery = colQuery !== '' ? colQuery.concat(' and ', count.query) : count.query;
-                    obs = obs.concat(this.guestService.filterGuestList(countQuery)
+                    const query = [row.query,col.query,count.query,].filter(qq => qq !== '').join(' and ');
+                    obs = obs.concat(this.guestService.filterGuestList(query)
                         .take(1)
                         .map(filteredNames => ({
+                            query: query,
                             path: [row.name, col.name, count.name],
                             count: filteredNames.length
                         })));
