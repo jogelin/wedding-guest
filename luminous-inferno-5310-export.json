@@ -1,0 +1,747 @@
+{
+  "guest-list" : [ {
+    "address" : "Rue Charles-Quint, 115\n1000 Bruxelles",
+    "guests" : [ {
+      "email" : "aline.trussart@gmail.com",
+      "name" : "Aline Trussart",
+      "tags" : [ "FAMILY", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "gelin.jonathan@gmail.com",
+      "name" : "Jonathan Gelin",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Rue Taille Madame, 33\n1450 Gentinnes",
+    "guests" : [ {
+      "email" : "marc.trussart@skynet.be",
+      "name" : "Marc Trussart",
+      "tags" : [ "FAMILY", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "brigitte.peneff@gmail.com",
+      "name" : "Brigitte Peneff",
+      "tags" : [ "FAMILY", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Avenue Eudore Pirmez, 24\n1040, Bruxelles",
+    "guests" : [ {
+      "email" : "simon.trussart@gmail.com",
+      "name" : "Simon Trussart",
+      "tags" : [ "FAMILY", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "astridvandamme@hotmail.com",
+      "name" : "Astrid Vandamme",
+      "tags" : [ "FAMILY", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Rue Washington 208 bt 15\n1050 Bruxelles",
+    "guests" : [ {
+      "email" : "chloe.stassart@gmail.com",
+      "name" : "Chloé Stassart",
+      "tags" : [ "FAMILY", "FROM_AL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Rue du Haut Bois, 27\n5340, Gesves",
+    "guests" : [ {
+      "email" : "morgane.stassart@hotmail.fr",
+      "name" : "Morgane Stassart",
+      "tags" : [ "FAMILY", "FROM_AL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "jpbrennet@skynet.be",
+      "name" : "Jean-Philippe Brennet",
+      "tags" : [ "FAMILY", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Chaussée de Roodebeek, 473\n1200, Bruxelles",
+    "guests" : [ {
+      "email" : "claire.huyberechts@gmail.com",
+      "name" : "Claire Huyberechts",
+      "tags" : [ "PARENT_FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "huyberg@yahoo.fr",
+      "name" : "Guy Huyberechts",
+      "tags" : [ "PARENT_FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "slcv@me.com",
+      "name" : "Stéphane Loosen",
+      "tags" : [ "PARENT_FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "slcv@me.com",
+      "name" : "Christiane Verbustel",
+      "tags" : [ "PARENT_FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue des Campagnes, 13\n5100, Wierde",
+    "guests" : [ {
+      "email" : "sophie.nootens@skynet.be",
+      "name" : "Sophie Nootens",
+      "tags" : [ "FROM_AL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Sandro Di Marcoberardino",
+      "tags" : [ "FROM_AL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Loïc Preys",
+      "tags" : [ "FROM_AL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Rue de l'inquisition 21\n1000 Bruxelles",
+    "guests" : [ {
+      "email" : "l_pitsaer@hotmail.com",
+      "name" : "Lydvine Pitsaer",
+      "tags" : [ "FRIEND", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "Janik.Kukral@gmx.de",
+      "name" : "Janik Kukral",
+      "tags" : [ "FRIEND", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Rue le corrège, 79\n1000, Bruxelles",
+    "guests" : [ {
+      "email" : "colingoubau@gmail.com",
+      "name" : "Colin Goubau",
+      "tags" : [ "FRIEND", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "vanessakol@gmail.com",
+      "name" : "Vanessa Kolman",
+      "tags" : [ "FRIEND", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Rue Général Fivé, 33\n1040 Bruxelles",
+    "guests" : [ {
+      "email" : "jeanmariedevezeaux@gmail.com",
+      "name" : "Jean-Marie Devezeaux",
+      "tags" : [ "FRIEND", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "annesophielambert@hotmail.com",
+      "name" : "Anne-Sophie Lambert",
+      "tags" : [ "FRIEND", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Juliette",
+      "tags" : [ "FRIEND", "ENFANT", "FROM_AL", "CIVIL", "CELEBRATION", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Rue Godefroid Devreese, 15 \n1030 Schaerbeek",
+    "guests" : [ {
+      "email" : "camille.gillet@gmail.com",
+      "name" : "Camille Gillet",
+      "tags" : [ "FRIEND", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "",
+      "name" : "Peter ???",
+      "tags" : [ "FRIEND", "FROM_AL", "CIVIL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue du Bailli ????? \n5080 Warisoulx",
+    "guests" : [ {
+      "email" : "adrien.meirlaen@gmail.com",
+      "name" : "Adri Meirlaen",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "cec.dethier@gmail.com",
+      "name" : "Cécile Dethier",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Pom",
+      "tags" : [ "FRIEND", "ENFANT", "FROM_AL", "CELEBRATION", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Rue du moulin, 50\n4280 Hannut",
+    "guests" : [ {
+      "email" : "ljacqmin@gmail.com",
+      "name" : "Lauranne Jacqmin",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "michael.cornelis2008@gmail.com",
+      "name" : "Michael Cornelis",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE", "CANCELLED" ]
+    } ]
+  }, {
+    "address" : "Rue Verhas 44\n1030 Bruxelles",
+    "guests" : [ {
+      "email" : "elodoss@hotmail.com",
+      "name" : "Elo Doss",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "laurentgauthy@live.be",
+      "name" : "Tygo Gauthy",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Rue du Viaduc 90\n1050 Bruxelles",
+    "guests" : [ {
+      "email" : "olidetournaij@gmail.com",
+      "name" : "Oli Detournaij",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "elise.dupont1@gmail.com",
+      "name" : "Elise Dupont",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue de la source 49\n1060 Bruxelles",
+    "guests" : [ {
+      "email" : "pilambert86@gmail.com",
+      "name" : "Pierre Lambert",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Avenue Gabriel Emile Lebon 7\n1160 Bruxelles",
+    "guests" : [ {
+      "email" : "brouyauxm@gmail.com",
+      "name" : "Mattieu Brouyaux",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "aud.pinte@gmail.com",
+      "name" : "Audrey Pinte",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue Edith Cavell 108\n1180 Uccle",
+    "guests" : [ {
+      "email" : "verstra.lv@gmail.com",
+      "name" : "Laura Verstra",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "lachrist@ulb.ac.be",
+      "name" : "Laurent Christ",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue du Bailli ????\n5080 Warisoulx",
+    "guests" : [ {
+      "email" : "tollenaere.sebastien@hotmail.com",
+      "name" : "Seb Tollenaere",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "eliserobaux@gmail.com",
+      "name" : "Elise Robaux",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "eloinmaud@hotmail.com",
+      "name" : "Maud Eloin",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Boulevard du Souverain, 356 bt 15\n1160 Auderghem",
+    "guests" : [ {
+      "email" : "fanny_verstraeten@hotmail.com",
+      "name" : "Fanny Verstraeten",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Stéphane Thirry",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Avenue roi chevalier 13\n1200 Bruxelles",
+    "guests" : [ {
+      "email" : "lambert.j@live.be",
+      "name" : "Lays Lambert",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "mariecorin909@msn.com",
+      "name" : "Marie Corin",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue Docteur Degavre, 2\n7880 Flobecq",
+    "guests" : [ {
+      "email" : "arbres2vies@gmail.com",
+      "name" : "Daniel Gelin",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "fabiennebaguet@gmail.com",
+      "name" : "Fabienne Baguet",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Myriam Gelin",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "rebouchkange@hotmail.com",
+      "name" : "Rebecca Gelin",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "zelieannemarie@gmail.com",
+      "name" : "Zélie Gelin",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Route nationale, 9\n59141 Thun-Saint-Martin\nFRANCE",
+    "guests" : [ {
+      "email" : "sambauer24@gmail.com",
+      "name" : "Samuel Gelin",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Soline Lafargue",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Cléo",
+      "tags" : [ "FAMILY", "ENFANT", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Rue de neufvilles, 363\n7063 Neufvilles",
+    "guests" : [ {
+      "email" : "ghenrard@hotmail.com",
+      "name" : "Guy Henrard",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "gelinmarie@hotmail.com",
+      "name" : "Marie Gelin",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Aubin",
+      "tags" : [ "FAMILY", "ENFANT", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Timéon",
+      "tags" : [ "FAMILY", "ENFANT", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Soline",
+      "tags" : [ "FAMILY", "ENFANT", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Tobias",
+      "tags" : [ "FAMILY", "ENFANT", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Walsh\nLe bourg\n24140 Maurens\nFRANCE",
+    "guests" : [ {
+      "email" : "annawalsh.g@gmail.com",
+      "name" : "Anna Gelin",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Clayton Walsh",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Elouan",
+      "tags" : [ "FAMILY", "ENFANT", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Andrew",
+      "tags" : [ "FAMILY", "ENFANT", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "le petit dernier",
+      "tags" : [ "FAMILY", "ENFANT", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue Docteur Degavre, 2\n7880 Flobecq",
+    "guests" : [ {
+      "email" : "timogelin@gmail.com",
+      "name" : "Timothée Gelin",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Charlie",
+      "tags" : [ "FAMILY", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue du Carillon, 3\n4317 faimes",
+    "guests" : [ {
+      "email" : "yves_kemp@hotmail.com",
+      "name" : "Yves Kempeners",
+      "tags" : [ "FRIEND", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    }, {
+      "email" : "--",
+      "name" : "Delphine Kepen",
+      "tags" : [ "FRIEND", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CONFIRMED" ]
+    } ]
+  }, {
+    "address" : "Rue de la Cure, 7\n5190 Spy",
+    "guests" : [ {
+      "email" : "sarboer.guillaume@gmail.com;will_helm04@hotmail.com",
+      "name" : "Guillaume Sarboer",
+      "tags" : [ "FRIEND", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Dorothée",
+      "tags" : [ "FRIEND", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue du Bois d'Ausse, 30\n5330 Assesse",
+    "guests" : [ {
+      "email" : "jerome.hendrix@gmail.com",
+      "name" : "Jérôme Hendrix",
+      "tags" : [ "FRIEND", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Avenue Barron Fallon, 43\n5000 Namur",
+    "guests" : [ {
+      "email" : "gilles.godts@gmail.com",
+      "name" : "Gilles Godts",
+      "tags" : [ "FRIEND", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue Maurice Duesberg 120\n4821 Andrimont",
+    "guests" : [ {
+      "email" : "aurelie@b-crea.be",
+      "name" : "Aurélie Massin",
+      "tags" : [ "FRIEND", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Greg",
+      "tags" : [ "FRIEND", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Sylvie Hardat & Jan Van Moer\nMeidoornlaan 12\n1851 Humbeek",
+    "guests" : [ {
+      "email" : "sylvie.hardat@hotmail.fr",
+      "name" : "Sylvie Hardat",
+      "tags" : [ "FRIEND", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Jan Van Moer",
+      "tags" : [ "FRIEND", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue Georges Clemenceau, 10\n44170, Nozay\nFRANCE",
+    "guests" : [ {
+      "email" : "andre@baguet.net",
+      "name" : "Papy Baguet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CANCELLED" ]
+    }, {
+      "email" : "--",
+      "name" : "Mamie Baguet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CIVIL", "CELEBRATION", "SOIREE", "CANCELLED" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "manugab@gmail.com",
+      "name" : "Manuel Baguet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Patricia Baguet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "sebastien@baguet.net",
+      "name" : "Sébastien Baguet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Sébastien wife",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue de la timonière, 61\n35690 ACIGNE\nFRANCE",
+    "guests" : [ {
+      "email" : "marie@baguet.net",
+      "name" : "Marie Baguet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "LA DONDIAIS\n44590 DERVAL\nFRANCE",
+    "guests" : [ {
+      "email" : "--",
+      "name" : "Joël Vicet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "isabelle.vicet@hotmail.fr",
+      "name" : "Isabelle Baguet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "alice.vicet@hotmail.fr",
+      "name" : "Alice Vicet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "cyril.niort@orange.fr",
+      "name" : "Emmanuelle Vicet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Cyril",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Anoha",
+      "tags" : [ "FAMILY_DISTANT", "ENFANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Louna",
+      "tags" : [ "FAMILY_DISTANT", "ENFANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Maiéline",
+      "tags" : [ "FAMILY_DISTANT", "ENFANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Route de vertou,124\n44200 Nantes",
+    "guests" : [ {
+      "email" : "vicet.audrey@gmail.com",
+      "name" : "Audrey Vicet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Ben",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue de Barcelone, 42\n34000 Montpellier\nFRANCE",
+    "guests" : [ {
+      "email" : "lucie.vicet@gmail.com",
+      "name" : "Lucie Vicet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Panaud Marc Olivier",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "3 bis route d'Abbaretz\n44170 Nozay\nFRANCE",
+    "guests" : [ {
+      "email" : "hubert.filatre@free.fr",
+      "name" : "Hubert Filatre",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "betty.filatre@gmail.com",
+      "name" : "Béatrice Baguet",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "filatremanon@gmail.com",
+      "name" : "Manon Filatre",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "3 avenue de la ronde\n49240 Avrillé\nFRANCE",
+    "guests" : [ {
+      "email" : "sarah.filatre@hotmail.fr",
+      "name" : "Sarah Filatre",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Florient",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "3 avenue de la ronde\n49240 Avrillé\nFRANCE",
+    "guests" : [ {
+      "email" : "maud.filatre@hotmail.fr",
+      "name" : "Maud Filatre",
+      "tags" : [ "FAMILY_DISTANT", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "oleg.korolenko@gmail.com",
+      "name" : "Oleg Korolenko",
+      "tags" : [ "FRIEND", "FROM_JO", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Oleg Wife",
+      "tags" : [ "FRIEND", "FROM_JO", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "rguitter@gmail.com",
+      "name" : "Richard Guitter",
+      "tags" : [ "FRIEND", "FROM_JO", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Richard Wife",
+      "tags" : [ "FRIEND", "FROM_JO", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue de la levure 39\n1050 Bruxelles",
+    "guests" : [ {
+      "email" : "nicogneau@gmail.com",
+      "name" : "Nicolas Cogneau",
+      "tags" : [ "FRIEND", "FROM_JO", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Valérie Quertinmont",
+      "tags" : [ "FRIEND", "FROM_JO", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "stanislas_gregoire@hotmail.com",
+      "name" : "Stanislas Gregoire",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "maryse.otjacques@gmail.com",
+      "name" : "Maryse Otjacques",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Avenue des Cèdres 7\n1970 Wezembeek-oppem",
+    "guests" : [ {
+      "email" : "",
+      "name" : "Quentin Huybrechts",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Amélie Matton",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue de l'activité 11\n1200 Bruxelles",
+    "guests" : [ {
+      "email" : "",
+      "name" : "Vanessa Huybrechts",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Thibault De Sauvage",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Chaussée de Roodebeek, 473\n1200 Bruxelles",
+    "guests" : [ {
+      "email" : "",
+      "name" : "Mélodie Huybrechts",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Adrien Sohet",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Kleinelangenheidstraat 10\n3040 Ottenbourg",
+    "guests" : [ {
+      "email" : "",
+      "name" : "Magali Huybrechts",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Kévin Diels",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue Renkin 76\n1030 Shaerbeek",
+    "guests" : [ {
+      "email" : "",
+      "name" : "Pauline Omnes",
+      "tags" : [ "FRIEND", "FROM_AL", "CELEBRATION", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Jules Lav",
+      "tags" : [ "FRIEND", "FROM_JO", "CELEBRATION", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "fxavierdresse@hotmail.com",
+      "name" : "François-Xavier Dresse",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "justine_jaspart@hotmail.com",
+      "name" : "Justine Jaspart",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "christophe.mangez@effem.com",
+      "name" : "Christophe Mangez",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "ingrid.noletdebrauwere@gmail.com",
+      "name" : "Ingrid Nolet",
+      "tags" : [ "FRIEND", "FROM_JO", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Place de la fechere 39\n1450 Blanmont",
+    "guests" : [ {
+      "email" : "simon.bouchonville@gmail.com",
+      "name" : "Simon Bouchonville",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Simon wife",
+      "tags" : [ "FRIEND", "FROM_JO", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "brieuccorin@gmail.com",
+      "name" : "Brieuc Corin",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "arnaud@jyvazik.be",
+      "name" : "Arnaud Debrye",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "anouk.musyck@hotmail.be",
+      "name" : "Anouk Musyck",
+      "tags" : [ "FRIEND", "FROM_JO", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "",
+      "name" : "Thomas Michotte",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Audrey",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Avenue jef lambeaux 5\n1060 Bruxelles",
+    "guests" : [ {
+      "email" : "annelise.bouillon@gmail.com",
+      "name" : "Lisette Bouillon",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue du Remblai 22\n1000 Bruxelles",
+    "guests" : [ {
+      "email" : "steph.goemaere@gmail.com",
+      "name" : "Stephanie Goemaere",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Stephanie husband",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "",
+    "guests" : [ {
+      "email" : "ncogneau@gmail.com",
+      "name" : "Nathalie Cogneau",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Alex",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    } ]
+  }, {
+    "address" : "Rue de la papeterie 25\n1490 Court Saint Etienne",
+    "guests" : [ {
+      "email" : "quentin.deboucq@gmail.com",
+      "name" : "Quentin Deboucq",
+      "tags" : [ "FRIEND", "FROM_AL", "SOIREE" ]
+    }, {
+      "email" : "--",
+      "name" : "Perrine Beckleandt",
+      "tags" : [ "FRIEND", "FROM_JO", "SOIREE" ]
+    } ]
+  } ]
+}

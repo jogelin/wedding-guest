@@ -15,11 +15,11 @@ import {FormsModule} from "@angular/forms";
 import {ReportModule} from "./modules/report/report.module";
 
 export const firebaseConfig = {
-    apiKey: 'AIzaSyCJQEGZqv9lEexqfHz5SzQ1wNoCpWgoaps',
-    authDomain: 'luminous-inferno-5310.firebaseapp.com',
-    databaseURL: 'https://luminous-inferno-5310.firebaseio.com',
-    storageBucket: 'luminous-inferno-5310.appspot.com',
-    messagingSenderId: '654530681156'
+    apiKey: 'AIzaSyD5bafCnxNFMZddSIk4PzgRLR-uQs1DRKQ',
+    authDomain: 'wedding-guest-8c998.firebaseapp.com',
+    databaseURL: 'https://wedding-guest-8c998.firebaseio.com',
+    storageBucket: 'wedding-guest-8c998.appspot.com',
+    messagingSenderId: '1035298718959'
 };
 
 @NgModule({
