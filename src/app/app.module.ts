@@ -10,8 +10,7 @@ import {StoreModule} from "@ngrx/store";
 import * as fromRoot from "./app.reducers";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {FilterModule} from "./modules/filter/filter.module";
-import {NgbModule, NgbButtonsModule} from "@ng-bootstrap/ng-bootstrap";
-import {FormsModule} from "@angular/forms";
+import {NgbButtonsModule} from "@ng-bootstrap/ng-bootstrap";
 import {ReportModule} from "./modules/report/report.module";
 
 export const firebaseConfig = {

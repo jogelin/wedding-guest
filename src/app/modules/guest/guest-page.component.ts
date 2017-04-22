@@ -24,6 +24,7 @@ import * as filter from '../filter/filter.actions';
                     </wg-sidebar>
                 </nav>  
                 <main class="col-sm-8 offset-sm-4 col-md-9 offset-md-3 pt-3">
+                    
                     <wg-guest-list 
                         [guestList]="guestList$ | async" 
                         [query]="query"
